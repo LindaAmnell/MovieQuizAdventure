@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="MovieQuizAdventure.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MovieQuizAdventure"
+             Height="Auto" Width="Auto">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Movie Quiz Adventure"
+                       Foreground="#C3A6FF"
+                       FontFamily="ROG Fonts"
+                       FontSize="28"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+            <Button x:Name="PlayButton"
+                    Content="Play Quiz"
+                    Width="200" Height="40"
+                    Margin="5"
+                    Background="#1C1F3B"
+                    Foreground="#C3A6FF"
+                    BorderBrush="#5E5BA8"
+                    FontWeight="Bold"
+                    FontFamily="ROG Fonts"
+                    Click="PlayButtonClick"
+                    />
+            <Button x:Name="EditButton"
+                    Content="Edit Quiz"
+                    Width="200" Height="40"
+                    Margin="5"
+                    Background="#1C1F3B"
+                    Foreground="#C3A6FF"
+                    BorderBrush="#5E5BA8"
+                    FontFamily="ROG Fonts"
+                    FontWeight="Bold"
+                    Click="EditButtonClick"
+                   />
+        </StackPanel>
+    </Grid>
+</UserControl>
+

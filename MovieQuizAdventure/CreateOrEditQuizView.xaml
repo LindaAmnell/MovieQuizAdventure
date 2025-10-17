@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MovieQuizAdventure.CreateOrEditQuizView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieQuizAdventure"
+             mc:Ignorable="d" 
+            d:DesignHeight="600" d:DesignWidth="900">
+    <Grid>
+        <TextBlock Text="Create or Edit Quiz – add questions, answers, and save"
+                   Foreground="#C3A6FF"
+                   FontFamily="ROG Fonts"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>
