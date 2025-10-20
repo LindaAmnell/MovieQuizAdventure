@@ -16,12 +16,16 @@ namespace MovieQuizAdventure
 
         private void PlayButtonClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new SelectQuiz(mainWindow));
+            mainWindow.Navigate(new SelectQuizView(mainWindow, isEditMode: false));
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new EditMenuView(mainWindow));
+            mainWindow.Navigate(new SelectQuizView(mainWindow, isEditMode: true));
+        }
+        private void CreatNewQuiz(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Navigate(new QuestionEditorView(mainWindow, isEditMode: false));
         }
     }
 }

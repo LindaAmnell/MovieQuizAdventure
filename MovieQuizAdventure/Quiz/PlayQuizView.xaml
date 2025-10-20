@@ -22,17 +22,13 @@
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
             
-        <TextBlock Text="Quiz in progress – displaying questions and answers"
-                   Foreground="#C3A6FF"
-                   FontFamily="ROG Fonts"
-                   FontSize="20"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+        
 
             <TextBlock Text="Who teaches Potions at Hogwarts during Harry’s first year?" 
                        Foreground="#C3A6FF" FontFamily="ROG Fonts"
-                       FontSize="10" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" Margin="20" />
+                       FontSize="18" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Margin="20" 
+                       TextWrapping="Wrap"/>
             
             <Grid HorizontalAlignment="Center">
                 <Grid.RowDefinitions>

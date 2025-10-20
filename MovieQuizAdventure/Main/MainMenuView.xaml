@@ -34,6 +34,15 @@
                     FontWeight="Bold"
                     Click="EditButtonClick"
                    />
+            <Button Content="Create New Quiz"
+                    Height="40" Width="200"
+                    Background="#1C1F3B"
+                    Foreground="#C3A6FF"
+                    BorderBrush="#5E5BA8"
+                    FontWeight="Bold"
+                    FontFamily="ROG Fonts"
+                    Click="CreatNewQuiz"
+      />
         </StackPanel>
     </Grid>
 </UserControl>
