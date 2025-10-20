@@ -17,7 +17,7 @@ namespace MovieQuizAdventure
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new SelectQuizView(mainWindow));
+            mainWindow.Navigate(new SelectQuizView(mainWindow, isEditMode: true));
         }
 
         private void EditQuestionClick(object sender, RoutedEventArgs e)

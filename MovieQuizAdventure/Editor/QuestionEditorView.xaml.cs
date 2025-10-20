@@ -30,7 +30,16 @@ namespace MovieQuizAdventure
         }
         private void SaveQuizClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new SelectQuestionView(mainWindow));
+            if (!IsEditMode)
+            {
+                mainWindow.Navigate(new MainMenuView(mainWindow));
+            }
+            else
+            {
+                mainWindow.Navigate(new SelectQuestionView(mainWindow));
+
+            }
         }
     }
+
 }

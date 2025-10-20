@@ -4,13 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieQuizAdventure"
-             mc:Ignorable="d" 
-            d:DesignHeight="600" d:DesignWidth="900">
-    <Grid>
+             mc:Ignorable="d">
+    <Grid Margin="20">
         <Button x:Name="BackButton"
                 Content="Quit"
                 Width="100" Height="40"
-                Margin="25"
+                Margin="10"
                 Background="#1C1F3B"
                 Foreground="#C3A6FF"
                 BorderBrush="#5E5BA8"
@@ -41,26 +40,26 @@
                 </Grid.ColumnDefinitions>
                
             <Button Content="Albus Dumbledore" Grid.Row="0" Grid.Column="0"
-                    Width="180" Height="40" Background="#1C1F3B"
+                     Width="200" Height="40" Background="#1C1F3B"
                     Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                    FontWeight="Bold" FontFamily="ROG Fonts" Margin="5"
+                    FontWeight="Bold" FontFamily="ROG Fonts" Margin="5" Padding="5"
                     Click="ChossenAnswer"/>
                 
                 <Button Content="Minerva McGonagall" Grid.Row="0" Grid.Column="1"
-                    Width="180" Height="40" Background="#1C1F3B"
+                    Width="200" Height="40" Background="#1C1F3B"
                     Foreground="#C3A6FF" BorderBrush="#5E5BA8" FontWeight="Bold"
-                    FontFamily="ROG Fonts" Margin="5"
+                    FontFamily="ROG Fonts" Margin="5" Padding="5"
                     Click="ChossenAnswer"/>
                 
                 <Button Content="Severus Snape"  Grid.Row="1" Grid.Column="0"
-                    Width="180" Height="40" Background="#1C1F3B"
+                     Width="200" Height="40" Background="#1C1F3B"
                     Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                    FontWeight="Bold" FontFamily="ROG Fonts"  Margin="5" Click="ChossenAnswer"/>
+                    FontWeight="Bold" FontFamily="ROG Fonts" Padding="5"  Margin="5" Click="ChossenAnswer"/>
                 
                 <Button Content="Rubeus Hagrid"  Grid.Row="1" Grid.Column="1"
-                    Width="180" Height="40" Background="#1C1F3B"
+                     Width="200" Height="40" Background="#1C1F3B"
                     Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                    FontWeight="Bold" FontFamily="ROG Fonts"  Margin="5" Click="ChossenAnswer"/>
+                    FontWeight="Bold" FontFamily="ROG Fonts" Padding="5"  Margin="5" Click="ChossenAnswer"/>
             </Grid>
         </StackPanel>
     </Grid>
