@@ -60,7 +60,7 @@
 
         }
 
-        public int QuestionWount => questionList.Count;
+        public int QuestionCount => questionList.Count;
 
     }
 }
