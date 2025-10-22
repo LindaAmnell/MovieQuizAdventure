@@ -97,7 +97,7 @@
                                      Width="30" Background="#C3A6FF"
                                      Foreground="#1C1F3B" BorderBrush="#5E5BA8"
                                      FontFamily="ROG Fonts" FontWeight="Bold" 
-                                     FontSize="14" HorizontalAlignment="Left" />    
+                                     FontSize="14" HorizontalAlignment="Left" TextChanged="CorrectAnswerTextBox_TextChanged" />    
                 </StackPanel>
                     <Button Grid.Row="3"
                                 Content="Save Quiz"

@@ -7,24 +7,60 @@
         public IEnumerable<Question> Questions => _questions;
         public string Title => _title;
 
+        private readonly List<Question> questionList = new List<Question>();
+        private static readonly Random random = new Random();
+
         public Quiz()
         {
             _questions = new List<Question>();
         }
 
+        public Quiz(string title) : this()
+        {
+            _title = title;
+            _questions = questionList;
+        }
+
+        public void SetTitle(string newTitle)
+        {
+            _title = newTitle;
+        }
+
         public Question GetRandomQuestion()
         {
-            throw new NotImplementedException("A random Question needs to be returned here!");
+            if (questionList.Count == 0)
+            {
+                throw new InvalidOperationException("The quiz contains no questions.");
+
+            }
+
+            int randomIndex = random.Next(questionList.Count);
+            return questionList[randomIndex];
+
+
         }
 
         public void AddQuestion(string statement, int correctAnswer, params string[] answers)
         {
-            throw new NotImplementedException("Question need to be instantiated and added to list of questions here!");
+            var newQuestion = new Question(statement, answers, correctAnswer);
+            questionList.Add(newQuestion);
+            _questions = questionList;
         }
 
         public void RemoveQuestion(int index)
         {
-            throw new NotImplementedException("Question at requested index need to be removed here!");
+
+            if (index < 0 || index >= questionList.Count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
+            }
+
+            questionList.RemoveAt(index);
+            _questions = questionList;
+
         }
+
+        public int QuestionWount => questionList.Count;
+
     }
 }

@@ -40,6 +40,11 @@ namespace MovieQuizAdventure
 
             }
         }
+
+        private void CorrectAnswerTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
 }
