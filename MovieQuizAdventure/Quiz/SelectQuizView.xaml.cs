@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MovieQuizAdventure.Models;
+using MovieQuizAdventure.Services;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MovieQuizAdventure
@@ -9,22 +11,18 @@ namespace MovieQuizAdventure
     public partial class SelectQuizView : UserControl
     {
         private MainWindow mainWindow;
-        private bool IsEditMode;
+        public bool IsEditMode { get; set; }
+        private QuizManager quizManager;
 
         public SelectQuizView(MainWindow main, bool isEditMode = false)
         {
             InitializeComponent();
             mainWindow = main;
-            this.IsEditMode = isEditMode;
+            IsEditMode = isEditMode;
+            DataContext = this;
 
-            if (isEditMode)
-            {
-                EditIconsPanel.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                EditIconsPanel.Visibility = Visibility.Collapsed;
-            }
+            quizManager = new QuizManager();
+            QuizList.ItemsSource = quizManager.GetAllQuizzes();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -33,15 +31,32 @@ namespace MovieQuizAdventure
         }
         private void GoToChoosenQuiz(object sender, RoutedEventArgs e)
         {
-            if (!IsEditMode)
+            var button = sender as Button;
+            var selectedQuiz = button?.Tag as Quiz;
+            if (selectedQuiz == null) return;
+
+            if (IsEditMode)
             {
-                mainWindow.Navigate(new PlayQuizView(mainWindow));
+                var quizManager = new QuizManager();
+                quizManager.SetCurrentQuiz(selectedQuiz);
+
+                mainWindow.Navigate(new SelectQuestionView(mainWindow));
+            }
+            else
+            {
+                var game = new PlayQuizGame(selectedQuiz);
+                mainWindow.Navigate(new PlayQuizView(mainWindow, game));
             }
         }
+
         private void EditQuiz(object sender, RoutedEventArgs e)
         {
             mainWindow.Navigate(new SelectQuestionView(mainWindow));
         }
+
+
+
+
 
 
     }

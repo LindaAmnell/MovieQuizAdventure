@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieQuizAdventure"
              mc:Ignorable="d"  >
-
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid Margin="20" >
 
         <Grid.RowDefinitions>
@@ -25,7 +27,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="BackButtonClick"/>
-        
+
         <TextBlock Grid.Row="1"
                    Text="Choose a quiz"
                    FontFamily="ROG Fonts"
@@ -34,37 +36,46 @@
                    Foreground="#C3A6FF"
                    HorizontalAlignment="Center"
                    Margin="0,10,0,20"/>
-
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
-
-            <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Button Content="Harry Potter Quiz"
-                        Height="40" Width="200"
-                        Background="#1C1F3B"
-                        Foreground="#C3A6FF"
-                        BorderBrush="#5E5BA8"
-                        FontWeight="Bold"
-                        FontFamily="ROG Fonts"
-                        Margin="10"
-                        Click="GoToChoosenQuiz"/>
-
-                <StackPanel x:Name="EditIconsPanel"
-                            Orientation="Horizontal"
-                            Visibility="Collapsed"
-                            VerticalAlignment="Center">
-                    <Button Height="25" Margin="5 10" Width="20"
-                            BorderBrush="#5E5BA8" 
-                            Background="#C3A6FF"
-                            Click="EditQuiz">
-                        <Image Source="/Images/pencil.png"  Width="15"/>
-                    </Button>
-                    <Button Height="25"  Margin="5 10" Width="20"
-                        BorderBrush="#5E5BA8" 
-                        Background="#C3A6FF">
-                        <Image Source="/Images/trashcanicon.png" Width="15"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
+        <ListBox x:Name="QuizList"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Background="Transparent"
+                    BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="{Binding Title}"
+                                Height="40" Width="200"
+                                Background="#1C1F3B"
+                                Foreground="#C3A6FF"
+                                BorderBrush="#5E5BA8"
+                                FontWeight="Bold"
+                                FontFamily="ROG Fonts"
+                                Margin="10"
+                                Click="GoToChoosenQuiz"
+                                Tag="{Binding}"/>
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Right"
+                                    Visibility="{Binding DataContext.IsEditMode,
+                                    RelativeSource={RelativeSource AncestorType=UserControl},
+                                    Converter={StaticResource BoolToVisibilityConverter}}">  
+                            <Button Height="25" Margin="5 10" Width="20"
+                                    BorderBrush="#5E5BA8" 
+                                    Background="#C3A6FF"
+                                    Click="EditQuiz"
+                                    Tag="{Binding}">
+                                <Image Source="/Images/pencil.png" Width="15"/>
+                            </Button>
+                            <Button Height="25" Margin="5 10" Width="20"
+                                    BorderBrush="#5E5BA8" 
+                                    Background="#C3A6FF">
+                                <Image Source="/Images/trashcanicon.png" Width="15"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

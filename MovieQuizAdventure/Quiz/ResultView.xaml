@@ -7,28 +7,25 @@
              mc:Ignorable="d"     >
   <Grid Margin="20">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Result View – showing your score and result"
-                   Foreground="#C3A6FF"
-                   FontFamily="ROG Fonts"
-                   FontSize="20"
+                <TextBlock Text="The Result From the"  Foreground="#C3A6FF"
+                           FontFamily="ROG Fonts"
+                           HorizontalAlignment="Center"
+                           Margin="10 15 10 0"
+                           FontSize="20"/>
+                <TextBlock  Text="{Binding Quiz.Title}" 
+                            Foreground="#C3A6FF"
+                            HorizontalAlignment="Center"
+                            FontFamily="ROG Fonts"
+                            FontSize="20" Margin="0 0 0 20"
                   />
             <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Result"  Foreground="#C3A6FF"
-                           FontFamily="ROG Fonts"
-                           HorizontalAlignment="Center"
-                           Margin="10 15 10 10"
-                           FontSize="20"/>
-                <TextBlock Text="10/15"  Foreground="#C3A6FF"
-                           FontFamily="ROG Fonts"
-                           HorizontalAlignment="Center"
-                           Margin="10 0 10 15"
-                           FontSize="20"/>
+                <TextBlock  x:Name="TextBlockAnswer"  Foreground="#C3A6FF" FontFamily="Felix Titling"
+                   Text="{Binding ScoreText}" FontSize="18" HorizontalAlignment="Center"
+                   Margin="0 0 0 20"/>
             </StackPanel>
-
             <Button x:Name="BackButton"
                 Content="Back To Meny"
                 Width="140" Height="40"
-                Margin="25"
                 Background="#1C1F3B"
                 Foreground="#C3A6FF"
                 BorderBrush="#5E5BA8"

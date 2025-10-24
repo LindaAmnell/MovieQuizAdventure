@@ -27,5 +27,7 @@ namespace MovieQuizAdventure
         {
             mainWindow.Navigate(new QuestionEditorView(mainWindow, isEditMode: false));
         }
+
+
     }
 }

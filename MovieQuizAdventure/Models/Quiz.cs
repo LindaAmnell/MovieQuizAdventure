@@ -2,65 +2,43 @@
 {
     public class Quiz
     {
-        private IEnumerable<Question> _questions;
-        private string _title = string.Empty;
-        public IEnumerable<Question> Questions => _questions;
-        public string Title => _title;
+        public string Title { get; set; }
 
-        private readonly List<Question> questionList = new List<Question>();
-        private static readonly Random random = new Random();
+        public List<Question> questions { get; set; }
 
-        public Quiz()
+        public Random Randomizer { get; set; }
+
+        public Quiz(string title = "")
         {
-            _questions = new List<Question>();
-        }
-
-        public Quiz(string title) : this()
-        {
-            _title = title;
-            _questions = questionList;
-        }
-
-        public void SetTitle(string newTitle)
-        {
-            _title = newTitle;
+            Title = title;
+            questions = new List<Question>();
+            Randomizer = new Random();
         }
 
         public Question GetRandomQuestion()
         {
-            if (questionList.Count == 0)
-            {
-                throw new InvalidOperationException("The quiz contains no questions.");
-
-            }
-
-            int randomIndex = random.Next(questionList.Count);
-            return questionList[randomIndex];
-
-
+            var newQuestionList = questions.ToList();
+            int index = Randomizer.Next(0, newQuestionList.Count);
+            return questions[index];
         }
 
         public void AddQuestion(string statement, int correctAnswer, params string[] answers)
         {
             var newQuestion = new Question(statement, answers, correctAnswer);
-            questionList.Add(newQuestion);
-            _questions = questionList;
+            questions.Add(newQuestion);
+
         }
 
         public void RemoveQuestion(int index)
         {
-
-            if (index < 0 || index >= questionList.Count)
+            if (index < 0 || index >= questions.Count)
             {
-                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
+                return;
             }
-
-            questionList.RemoveAt(index);
-            _questions = questionList;
-
+            questions.RemoveAt(index);
         }
 
-        public int QuestionCount => questionList.Count;
+        public int QuestionCount => questions.Count;
 
     }
 }

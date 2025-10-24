@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MovieQuizAdventure.Models;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MovieQuizAdventure
@@ -9,11 +10,14 @@ namespace MovieQuizAdventure
     public partial class PlayQuizView : UserControl
     {
         private MainWindow mainWindow;
+        public PlayQuizGame ViewModel { get; set; }
 
-        public PlayQuizView(MainWindow main)
+        public PlayQuizView(MainWindow main, PlayQuizGame quizGame)
         {
             InitializeComponent();
             mainWindow = main;
+            ViewModel = quizGame;
+            DataContext = ViewModel;
         }
 
         private void Quit(object sender, RoutedEventArgs e)
@@ -21,9 +25,16 @@ namespace MovieQuizAdventure
             mainWindow.Navigate(new MainMenuView(mainWindow));
         }
 
-        private void ChossenAnswer(object sender, RoutedEventArgs e)
+        public void AnswerBtn_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new ResultView(mainWindow));
+            Button button = sender as Button;
+            int selectedIndex = int.Parse(button.Tag.ToString());
+            ViewModel.GetNextQuestion(selectedIndex);
+
+            if (ViewModel.CurrentQuestion == null)
+            {
+                mainWindow.Navigate(new ResultView(mainWindow, ViewModel));
+            }
         }
     }
 }

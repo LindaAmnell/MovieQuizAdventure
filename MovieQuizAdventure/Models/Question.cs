@@ -13,5 +13,11 @@
             CorrectAnswer = correctAnswer;
         }
 
+        public bool IsCorrect(int selectedIndex)
+        {
+            return selectedIndex == CorrectAnswer;
+        }
+
+
     }
 }

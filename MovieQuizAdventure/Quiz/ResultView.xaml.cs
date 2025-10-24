@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MovieQuizAdventure.Models;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MovieQuizAdventure
@@ -9,11 +10,14 @@ namespace MovieQuizAdventure
     public partial class ResultView : UserControl
     {
         private MainWindow mainWindow;
+        public PlayQuizGame ViewModel { get; set; }
 
-        public ResultView(MainWindow main)
+        public ResultView(MainWindow main, PlayQuizGame game)
         {
             InitializeComponent();
             mainWindow = main;
+            ViewModel = game;
+            DataContext = ViewModel;
         }
 
         private void BackToMenuButtonClick(object sender, RoutedEventArgs e)
