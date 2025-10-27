@@ -10,13 +10,11 @@ namespace MovieQuizAdventure
     public partial class ResultView : UserControl
     {
         private MainWindow mainWindow;
-        public PlayQuizGame ViewModel { get; set; }
 
-        public ResultView(MainWindow main, PlayQuizGame game)
+        public ResultView(MainWindow main, PlayQuizGame ViewModel)
         {
             InitializeComponent();
             mainWindow = main;
-            ViewModel = game;
             DataContext = ViewModel;
         }
 

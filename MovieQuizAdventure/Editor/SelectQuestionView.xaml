@@ -20,47 +20,38 @@
                VerticalAlignment="Top" Click="BackButtonClick"/>
         
         <TextBlock Grid.Row="1"
-                   Text="Questions in Harry Potter Quiz"
+                  Text="{Binding CurrentQuiz.Title}"
                    FontFamily="ROG Fonts"
                    FontSize="24"
                    FontWeight="Bold"
                    Foreground="#C3A6FF"
                    HorizontalAlignment="Center"
                    Margin="0,10,0,20"/>
-        
+
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="QuestionList" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal" Margin="0 20" >
-                    <TextBlock Text="Who teaches Potions at Hogwarts?"
-                               Width="500"
+            <ItemsControl x:Name="QuestionList" HorizontalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="0 20" >
+                    <TextBlock  Text="{Binding Statement}"
+                                TextWrapping="Wrap"
+                               Width="400"
                                Foreground="#C3A6FF"
                                FontFamily="ROG Fonts"
                                FontSize="16"
                                VerticalAlignment="Center"/>
-                    <Button Height="30" Width="30"
+                        <Button Height="30" Width="30"
                             BorderBrush="#5E5BA8"
                             Background="#C3A6FF"
-                            Click="EditQuestionClick">
+                            Click="EditQuestionClick"
+                                Margin="5 0"
+                            Tag="{Binding}">
                         <Image Source="/Images/pencil.png" Width="15"/>
-                    </Button>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 20">
-                    <TextBlock Text="What is Harry’s house at Hogwarts?"
-                               Foreground="#C3A6FF"
-                               FontFamily="ROG Fonts"
-                               FontSize="16"
-                               VerticalAlignment="Center"
-                               Width="500"/>
-                    <Button Height="30" Width="30"
-                            BorderBrush="#5E5BA8"
-                            Background="#C3A6FF"
-                            HorizontalAlignment="Right"
-                            Click="EditQuestionClick">
-                        <Image Source="/Images/pencil.png" Width="15"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
+                        </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 </UserControl>

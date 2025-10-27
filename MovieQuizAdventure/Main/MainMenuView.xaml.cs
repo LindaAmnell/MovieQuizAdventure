@@ -25,7 +25,7 @@ namespace MovieQuizAdventure
         }
         private void CreatNewQuiz(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new QuestionEditorView(mainWindow, isEditMode: false));
+            mainWindow.Navigate(new QuestionEditorView(mainWindow));
         }
 
 

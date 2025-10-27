@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MovieQuizAdventure.Models;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MovieQuizAdventure
@@ -9,11 +10,15 @@ namespace MovieQuizAdventure
     public partial class SelectQuestionView : UserControl
     {
         private MainWindow mainWindow;
+        private Quiz currentQuiz;
 
-        public SelectQuestionView(MainWindow main)
+        public SelectQuestionView(MainWindow main, Quiz quiz)
         {
             InitializeComponent();
             mainWindow = main;
+            currentQuiz = quiz;
+            QuestionList.ItemsSource = currentQuiz.questions;
+
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
@@ -22,7 +27,11 @@ namespace MovieQuizAdventure
 
         private void EditQuestionClick(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new QuestionEditorView(mainWindow, isEditMode: true));
+            var button = sender as Button;
+            var question = button?.Tag as Question;
+            if (question == null) return;
+
+            mainWindow.Navigate(new QuestionEditorView(mainWindow, question, currentQuiz));
         }
     }
 }

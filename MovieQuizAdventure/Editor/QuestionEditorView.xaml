@@ -33,17 +33,17 @@
                                                Foreground="#C3A6FF"  FontFamily="ROG Fonts"
                                                FontSize="18" Margin="0,10,0,5"/>
                             <TextBox x:Name="QuizNameTextBox"
-                                     Text="Harry Potter Quiz" Padding="0 5"
-                                     Background="#C3A6FF" Foreground="#1C1F3B"
-                                     BorderBrush="#5E5BA8" FontFamily="ROG Fonts"
-                                     FontWeight="Bold" FontSize="14" />   
+                                            Text="{Binding QuizTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="0 5"
+                                            Background="#C3A6FF" Foreground="#1C1F3B"
+                                            BorderBrush="#5E5BA8" FontFamily="ROG Fonts"
+                                            FontWeight="Bold" FontSize="14"/>   
 
                             <TextBlock Text="Question:"
                                                 Foreground="#C3A6FF" FontFamily="ROG Fonts"
                                                 FontSize="18"
                                                 VerticalAlignment="Center"  Margin="0,10,0,5"/>
                             <TextBox x:Name="QuestionTextBox"
-                                            Text="Who teaches Potions at Hogwarts during Harry’s first year?"
+                                          Text="{Binding Statement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Background="#C3A6FF"  Foreground="#1C1F3B"
                                             BorderBrush="#5E5BA8" FontFamily="ROG Fonts"
                                             Width="350" Padding="0 5"
@@ -55,7 +55,7 @@
                                          Foreground="#C3A6FF" FontFamily="ROG Fonts"
                                          FontSize="18" Margin="0,10,0,5"/>
                              <TextBox x:Name="Answer1TextBox"
-                                      Text="Albus Dumbledore"
+                                     Text="{Binding Answers[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                       Background="#C3A6FF"
                                       Padding="0 5"
                                       Foreground="#1C1F3B" BorderBrush="#5E5BA8"
@@ -66,7 +66,7 @@
                                          Foreground="#C3A6FF" FontFamily="ROG Fonts" 
                                          FontSize="18" Margin="0,10,0,5"/>
                               <TextBox x:Name="Answer2TextBox"
-                                       Text="Minerva McGonagall"
+                                     Text="{Binding Answers[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                        Padding="0 5" Background="#C3A6FF"
                                        Foreground="#1C1F3B" BorderBrush="#5E5BA8"
                                        FontFamily="ROG Fonts" FontWeight="Bold"
@@ -76,14 +76,14 @@
                                          Foreground="#C3A6FF" FontFamily="ROG Fonts"
                                          FontSize="18" Margin="0,10,0,5" />
                               <TextBox x:Name="Answer3TextBox"
-                                        Background="#C3A6FF" Text="Severus Snape" Padding="0 5"
+                                        Background="#C3A6FF" Text="{Binding Answers[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="0 5"
                                         Foreground="#1C1F3B" BorderBrush="#5E5BA8"
                                         FontFamily="ROG Fonts" FontWeight="Bold" FontSize="14"/>
 
                             <TextBlock Text="Answer 4:"
                                        Foreground="#C3A6FF" FontFamily="ROG Fonts"
                                        FontSize="18" Margin="0,10,0,5"/>
-                            <TextBox x:Name="Answer4TextBox" Text="Rubeus Hagrid"
+                <TextBox x:Name="Answer4TextBox" Text="{Binding Answers[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Padding="0 5" Background="#C3A6FF"
                                         Foreground="#1C1F3B" BorderBrush="#5E5BA8"
                                         FontFamily="ROG Fonts" FontWeight="Bold" FontSize="14"/>
@@ -92,19 +92,34 @@
                                        Foreground="#C3A6FF"  FontFamily="ROG Fonts"
                                        FontSize="18" Margin="0,10,0,5"/>
 
-                            <TextBox x:Name="CorrectAnswerTextBox"
-                                     Text="3" Padding="7"
-                                     Width="30" Background="#C3A6FF"
-                                     Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                     FontFamily="ROG Fonts" FontWeight="Bold" 
-                                     FontSize="14" HorizontalAlignment="Left" TextChanged="CorrectAnswerTextBox_TextChanged" />    
+                        <ComboBox SelectedIndex="{Binding CorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="70" Background="#C3A6FF"
+                            Foreground="#1C1F3B" BorderBrush="#5E5BA8"
+                            FontFamily="ROG Fonts" FontWeight="Bold" Margin="0 3"
+                            FontSize="14" HorizontalAlignment="Left" Padding="5">   
+
+                              <ComboBoxItem Content="1"/>
+                              <ComboBoxItem Content="2"/>
+                              <ComboBoxItem Content="3"/>
+                              <ComboBoxItem Content="4"/> 
+                    </ComboBox>   
                 </StackPanel>
-                    <Button Grid.Row="3"
-                                Content="Save Quiz"
-                                Width="150" Height="40" Background="#1C1F3B"
-                                Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                                FontWeight="Bold" FontFamily="ROG Fonts" Margin="20"
-                                HorizontalAlignment="Center" Click="SaveQuizClick"/>    
-            </Grid>
+            <StackPanel Grid.Row="3"  >
+                <Button 
+                       Content="Save Quiz"
+                       Width="150" Height="40" Background="#1C1F3B"
+                       Foreground="#C3A6FF" BorderBrush="#5E5BA8"
+                       FontWeight="Bold" FontFamily="ROG Fonts"
+                       HorizontalAlignment="Center" Click="SaveQuizClick"/>
+                <StackPanel x:Name="NewQuizMode" Visibility="Collapsed">
+                    <Button 
+                         Content="Next Question"
+                         Width="150" Height="40" Background="#1C1F3B"
+                         Foreground="#C3A6FF" BorderBrush="#5E5BA8"
+                         FontWeight="Bold" FontFamily="ROG Fonts" Margin="20"
+                         HorizontalAlignment="Center" Click="NextQuestionClick"/>   
+                </StackPanel>
+            </StackPanel>
+        </Grid>
         </ScrollViewer>
 </UserControl>

@@ -31,19 +31,11 @@ namespace MovieQuizAdventure
         }
         private void GoToChoosenQuiz(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            var selectedQuiz = button?.Tag as Quiz;
-            if (selectedQuiz == null) return;
-
-            if (IsEditMode)
+            if (!IsEditMode)
             {
-                var quizManager = new QuizManager();
-                quizManager.SetCurrentQuiz(selectedQuiz);
-
-                mainWindow.Navigate(new SelectQuestionView(mainWindow));
-            }
-            else
-            {
+                var button = sender as Button;
+                var selectedQuiz = button?.Tag as Quiz;
+                if (selectedQuiz == null) return;
                 var game = new PlayQuizGame(selectedQuiz);
                 mainWindow.Navigate(new PlayQuizView(mainWindow, game));
             }
@@ -51,7 +43,12 @@ namespace MovieQuizAdventure
 
         private void EditQuiz(object sender, RoutedEventArgs e)
         {
-            mainWindow.Navigate(new SelectQuestionView(mainWindow));
+            var button = sender as Button;
+            var selectedQuiz = button?.Tag as Quiz;
+            if (selectedQuiz == null) return;
+
+
+            mainWindow.Navigate(new SelectQuestionView(mainWindow, selectedQuiz));
         }
 
 

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MovieQuizAdventure.Models;
+using MovieQuizAdventure.Services;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MovieQuizAdventure
@@ -9,12 +11,30 @@ namespace MovieQuizAdventure
     public partial class QuestionEditorView : UserControl
     {
         private MainWindow mainWindow;
+        private Quiz currentQuiz;
         private bool IsEditMode;
-        public QuestionEditorView(MainWindow main, bool isEditMode = false)
+
+        public EditAndCreatQuizViewModel ViewModel { get; set; }
+
+        public QuestionEditorView(MainWindow main, Question question = null, Quiz quiz = null)
         {
             InitializeComponent();
             mainWindow = main;
-            this.IsEditMode = isEditMode;
+            currentQuiz = quiz;
+
+            if (question != null)
+            {
+                IsEditMode = true;
+                ViewModel = new EditAndCreatQuizViewModel(question, quiz);
+            }
+            else
+            {
+                IsEditMode = false;
+                ViewModel = new EditAndCreatQuizViewModel(null, quiz);
+            }
+
+            DataContext = ViewModel;
+            NewQuizMode.Visibility = IsEditMode ? Visibility.Collapsed : Visibility.Visible;
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
@@ -24,7 +44,7 @@ namespace MovieQuizAdventure
             }
             else
             {
-                mainWindow.Navigate(new SelectQuestionView(mainWindow));
+                mainWindow.Navigate(new SelectQuestionView(mainWindow, currentQuiz));
 
             }
         }
@@ -36,14 +56,16 @@ namespace MovieQuizAdventure
             }
             else
             {
-                mainWindow.Navigate(new SelectQuestionView(mainWindow));
-
+                mainWindow.Navigate(new SelectQuestionView(mainWindow, currentQuiz));
+                ViewModel.Save();
             }
         }
-
-        private void CorrectAnswerTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void NextQuestionClick(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.Save();
+            ViewModel.Clear();
+            DataContext = null;
+            DataContext = ViewModel;
         }
     }
 

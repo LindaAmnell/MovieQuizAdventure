@@ -11,6 +11,7 @@ namespace MovieQuizAdventure.Services
         {
             quizzes = new List<Quiz>();
 
+
             var movie = CreateQuiz("Movie Quiz");
             movie.AddQuestion("Who directed Inception?", 0, "Christopher Nolan", "Spielberg", "Cameron");
             movie.AddQuestion("Which year was Titanic released?", 1, "1995", "1997", "2001");
