@@ -13,6 +13,7 @@ namespace MovieQuizAdventure
         private MainWindow mainWindow;
         public bool IsEditMode { get; set; }
         private QuizManager quizManager;
+        public SelectQuizView ViewModel { get; set; }
 
         public SelectQuizView(MainWindow main, bool isEditMode = false)
         {
@@ -20,8 +21,8 @@ namespace MovieQuizAdventure
             mainWindow = main;
             IsEditMode = isEditMode;
 
-            quizManager = new QuizManager();
-            QuizList.ItemsSource = quizManager.GetAllQuizzes();
+            quizManager = QuizManager.Instance;
+            QuizList.ItemsSource = quizManager.quizzes;
 
             DataContext = this;
         }
@@ -49,6 +50,24 @@ namespace MovieQuizAdventure
 
 
             mainWindow.Navigate(new SelectQuestionView(mainWindow, selectedQuiz));
+        }
+
+
+        private void DeleteQuestionClick(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var selectedQuiz = button?.Tag as Quiz;
+            if (selectedQuiz == null) return;
+
+            var result = MessageBox.Show(
+                "There are no questions left in this quiz.\nThe quiz will now be deleted.",
+                "Quiz deleted",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+
+            JsonStorage.DeleteQuizFile(selectedQuiz.FileName);
+            QuizManager.Instance.quizzes.Remove(selectedQuiz);
+
         }
     }
 }

@@ -11,6 +11,17 @@
   <ItemGroup>
     <None Remove="Images\pencil.png" />
     <None Remove="Images\trashcanicon.png" />
+    <None Remove="Quizzes\HarryPotterQuiz %281%29.json" />
+    <None Remove="Quizzes\Hunger_Games.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Quizzes\HarryPotterQuiz (1).json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Quizzes\Hunger_Games.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

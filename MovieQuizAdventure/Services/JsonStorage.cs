@@ -53,5 +53,36 @@ namespace MovieQuizAdventure.Services
                             .ToList();
         }
 
+        public static void DeleteQuizFile(string fileName)
+        {
+            string fullPath = Path.Combine(folderPath, fileName);
+
+            if (File.Exists(fullPath))
+                File.Delete(fullPath);
+        }
+
+
+        public static void EnsureDefaultQuizzesFromProject()
+        {
+            string firstRunFlag = Path.Combine(folderPath, "defaults_copied.txt");
+
+            if (File.Exists(firstRunFlag))
+                return;
+
+            string quizzesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Quizzes");
+
+            if (Directory.Exists(quizzesFolder))
+            {
+                foreach (var file in Directory.GetFiles(quizzesFolder, "*.json"))
+                {
+                    string fileName = Path.GetFileName(file);
+                    string destination = Path.Combine(folderPath, fileName);
+
+                    if (!File.Exists(destination))
+                        File.Copy(file, destination);
+                }
+            }
+            File.WriteAllText(firstRunFlag, "done");
+        }
     }
 }

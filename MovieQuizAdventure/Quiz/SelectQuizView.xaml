@@ -68,8 +68,10 @@
                                 <Image Source="/Images/pencil.png" Width="15"/>
                             </Button>
                             <Button Height="25" Margin="5 10" Width="20"
-                                    BorderBrush="#5E5BA8" 
-                                    Background="#C3A6FF">
+                                   BorderBrush="#5E5BA8"
+                                   Background="#C3A6FF"
+                                   Click="DeleteQuestionClick"
+                                   Tag="{Binding}">
                                 <Image Source="/Images/trashcanicon.png" Width="15"/>
                             </Button>
                         </StackPanel>

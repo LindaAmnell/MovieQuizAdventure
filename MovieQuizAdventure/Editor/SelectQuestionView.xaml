@@ -34,7 +34,7 @@
                     <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="0 20" >
                     <TextBlock  Text="{Binding Statement}"
-                                TextWrapping="Wrap"
+                               TextWrapping="Wrap"
                                Width="400"
                                Foreground="#C3A6FF"
                                FontFamily="ROG Fonts"
@@ -44,10 +44,17 @@
                             BorderBrush="#5E5BA8"
                             Background="#C3A6FF"
                             Click="EditQuestionClick"
-                                Margin="5 0"
+                            Margin="5 0"
                             Tag="{Binding}">
                         <Image Source="/Images/pencil.png" Width="15"/>
                         </Button>
+                         <Button Height="25" Margin="5 10" Width="20"
+                                BorderBrush="#5E5BA8"
+                                Background="#C3A6FF"
+                                Click="DeleteQuestionClick"
+                                Tag="{Binding}">    
+                                <Image Source="/Images/trashcanicon.png" Width="15"/>
+                         </Button>
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
