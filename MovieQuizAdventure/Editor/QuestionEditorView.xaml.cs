@@ -53,7 +53,9 @@ namespace MovieQuizAdventure
         }
         private async void SaveQuizClick(object sender, RoutedEventArgs e)
         {
-            await ViewModel.Save();
+            var ok = await ViewModel.Save();
+            if (!ok) return;
+
             if (!IsEditMode)
             {
                 mainWindow.Navigate(new MainMenuView(mainWindow));
@@ -67,7 +69,9 @@ namespace MovieQuizAdventure
         {
             try
             {
-                await ViewModel.Save();
+                var ok = await ViewModel.Save();
+                if (!ok) return;
+
                 ViewModel.Clear();
                 DataContext = null;
                 DataContext = ViewModel;
@@ -81,6 +85,7 @@ namespace MovieQuizAdventure
                     MessageBoxImage.Error);
             }
         }
+
     }
 
 }

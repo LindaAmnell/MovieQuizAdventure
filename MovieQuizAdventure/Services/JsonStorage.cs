@@ -17,6 +17,8 @@ namespace MovieQuizAdventure.Services
 
         public static async Task SaveQuizAsync(Quiz quiz)
         {
+            if (quiz?.questions == null || quiz.questions.Count == 0)
+                return;
             string safeTitle = quiz.Title.Replace(" ", "_");
             string fileName = quiz.FileName ?? $"{safeTitle}.json";
             quiz.FileName = fileName;

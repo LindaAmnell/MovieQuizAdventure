@@ -70,27 +70,62 @@ namespace MovieQuizAdventure.Services
             }
         }
 
-        public async Task Save()
+        public async Task<bool> Save()
         {
             if (currentQuiz == null)
-                return;
+                return false;
 
-            currentQuiz.Title = QuizTitle;
+            if (string.IsNullOrWhiteSpace(QuizTitle))
+            {
+                MessageBox.Show("Please enter a quiz title.", "Validation",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Statement))
+            {
+                MessageBox.Show("Please enter a question.", "Validation",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+
+            int nonEmptyAnswers = Answers.Count(a => !string.IsNullOrWhiteSpace(a));
+            if (nonEmptyAnswers < 4)
+            {
+                MessageBox.Show("Please fill in all four answer options.", "Validation",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+
+            currentQuiz.Title = (QuizTitle ?? "").Trim();
+            var cleanedStatement = (Statement ?? "").Trim();
+            var cleanedAnswers = (Answers ?? new string[4])
+                .Select(a => a?.Trim() ?? "")
+                .ToArray();
 
             if (currentQuestion == null)
             {
-                currentQuiz.AddQuestion(Statement, CorrectAnswer, Answers);
+                currentQuiz.AddQuestion(cleanedStatement, CorrectAnswer, cleanedAnswers);
                 Questions.Add(currentQuiz.questions.Last());
             }
             else
             {
-                currentQuestion.Statement = Statement;
-                currentQuestion.Answers = Answers;
+                currentQuestion.Statement = cleanedStatement;
+                currentQuestion.Answers = cleanedAnswers;
                 currentQuestion.CorrectAnswer = CorrectAnswer;
             }
             await JsonStorage.SaveQuizAsync(currentQuiz);
+
+            var mgr = QuizManager.Instance;
+            if (!mgr.quizzes.Any(q =>
+                    string.Equals(q.FileName, currentQuiz.FileName, StringComparison.OrdinalIgnoreCase)))
+            {
+                mgr.quizzes.Add(currentQuiz);
+            }
+
             currentQuestion = null;
+            return true;
         }
+
 
         public async Task<bool> DeleteSelectedQuestion()
         {
@@ -122,10 +157,10 @@ namespace MovieQuizAdventure.Services
                 currentQuiz.FileName = $"{currentQuiz.Title.Replace(" ", "_")}.json";
 
             JsonStorage.DeleteQuizFile(currentQuiz.FileName);
+            QuizManager.Instance.quizzes.Remove(currentQuiz);
+
             return true;
         }
-
-
         public void Clear()
         {
             Statement = string.Empty;
