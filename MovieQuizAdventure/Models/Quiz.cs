@@ -5,6 +5,7 @@
         public string Title { get; set; }
 
         public List<Question> questions { get; set; }
+        public string FileName { get; set; }
 
         public Random Randomizer { get; set; }
 

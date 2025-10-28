@@ -20,21 +20,24 @@ namespace MovieQuizAdventure
         {
             InitializeComponent();
             mainWindow = main;
-            currentQuiz = quiz;
 
-            if (question != null)
+            if (quiz == null)
             {
-                IsEditMode = true;
-                ViewModel = new EditAndCreatQuizViewModel(question, quiz);
+                quiz = new Quiz("");
+                currentQuiz = quiz;
+                IsEditMode = false;
+                ViewModel = new EditAndCreatQuizViewModel(null, quiz);
             }
             else
             {
-                IsEditMode = false;
-                ViewModel = new EditAndCreatQuizViewModel(null, quiz);
+                currentQuiz = quiz;
+                IsEditMode = question != null;
+                ViewModel = new EditAndCreatQuizViewModel(question, quiz);
             }
 
             DataContext = ViewModel;
             NewQuizMode.Visibility = IsEditMode ? Visibility.Collapsed : Visibility.Visible;
+            SaveQuizButton.Visibility = IsEditMode ? Visibility.Visible : Visibility.Collapsed;
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
@@ -48,8 +51,9 @@ namespace MovieQuizAdventure
 
             }
         }
-        private void SaveQuizClick(object sender, RoutedEventArgs e)
+        private async void SaveQuizClick(object sender, RoutedEventArgs e)
         {
+            await ViewModel.Save();
             if (!IsEditMode)
             {
                 mainWindow.Navigate(new MainMenuView(mainWindow));
@@ -57,15 +61,25 @@ namespace MovieQuizAdventure
             else
             {
                 mainWindow.Navigate(new SelectQuestionView(mainWindow, currentQuiz));
-                ViewModel.Save();
             }
         }
-        private void NextQuestionClick(object sender, RoutedEventArgs e)
+        private async void NextQuestionClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.Save();
-            ViewModel.Clear();
-            DataContext = null;
-            DataContext = ViewModel;
+            try
+            {
+                await ViewModel.Save();
+                ViewModel.Clear();
+                DataContext = null;
+                DataContext = ViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Something went wrong when saving the question.\n\nDetails:\n{ex.Message}",
+                    "Save Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
     }
 

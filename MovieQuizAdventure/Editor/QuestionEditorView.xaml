@@ -104,22 +104,22 @@
                               <ComboBoxItem Content="4"/> 
                     </ComboBox>   
                 </StackPanel>
-            <StackPanel Grid.Row="3"  >
-                <Button 
+                <StackPanel Grid.Row="3"  >
+                <Button x:Name="SaveQuizButton" Visibility="Collapsed"
                        Content="Save Quiz"
                        Width="150" Height="40" Background="#1C1F3B"
                        Foreground="#C3A6FF" BorderBrush="#5E5BA8"
                        FontWeight="Bold" FontFamily="ROG Fonts"
                        HorizontalAlignment="Center" Click="SaveQuizClick"/>
-                <StackPanel x:Name="NewQuizMode" Visibility="Collapsed">
-                    <Button 
+               
+                    <Button  x:Name="NewQuizMode" Visibility="Collapsed"
                          Content="Next Question"
                          Width="150" Height="40" Background="#1C1F3B"
                          Foreground="#C3A6FF" BorderBrush="#5E5BA8"
                          FontWeight="Bold" FontFamily="ROG Fonts" Margin="20"
                          HorizontalAlignment="Center" Click="NextQuestionClick"/>   
+              
                 </StackPanel>
-            </StackPanel>
-        </Grid>
-        </ScrollViewer>
+            </Grid>
+     </ScrollViewer>
 </UserControl>

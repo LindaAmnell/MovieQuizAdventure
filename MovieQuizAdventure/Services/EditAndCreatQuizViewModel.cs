@@ -48,7 +48,7 @@ namespace MovieQuizAdventure.Services
             }
         }
 
-        public void Save()
+        public async Task Save()
         {
             if (currentQuiz == null)
                 return;
@@ -65,6 +65,8 @@ namespace MovieQuizAdventure.Services
                 currentQuestion.Answers = Answers;
                 currentQuestion.CorrectAnswer = CorrectAnswer;
             }
+            await JsonStorage.SaveQuizAsync(currentQuiz);
+            currentQuestion = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -86,6 +88,7 @@ namespace MovieQuizAdventure.Services
             OnPropertyChanged("Answers[3]");
 
         }
+
     }
 }
 

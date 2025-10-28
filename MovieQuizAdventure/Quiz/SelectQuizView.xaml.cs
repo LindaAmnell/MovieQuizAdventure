@@ -19,12 +19,12 @@ namespace MovieQuizAdventure
             InitializeComponent();
             mainWindow = main;
             IsEditMode = isEditMode;
-            DataContext = this;
 
             quizManager = new QuizManager();
             QuizList.ItemsSource = quizManager.GetAllQuizzes();
-        }
 
+            DataContext = this;
+        }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             mainWindow.Navigate(new MainMenuView(mainWindow));
@@ -50,11 +50,5 @@ namespace MovieQuizAdventure
 
             mainWindow.Navigate(new SelectQuestionView(mainWindow, selectedQuiz));
         }
-
-
-
-
-
-
     }
 }
