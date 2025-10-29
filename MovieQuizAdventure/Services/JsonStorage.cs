@@ -1,6 +1,7 @@
 ﻿using MovieQuizAdventure.Models;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace MovieQuizAdventure.Services
 {
     public static class JsonStorage
@@ -9,11 +10,18 @@ namespace MovieQuizAdventure.Services
         private static string folderPath =>
              Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MovieQuizAdventure");
 
+        private static readonly JsonSerializerOptions JsonOptions = new()
+        {
+            WriteIndented = true,
+            Converters = { new JsonStringEnumConverter() },
+            PropertyNameCaseInsensitive = true
+        };
 
         static JsonStorage()
         {
             Directory.CreateDirectory(folderPath);
         }
+
 
         public static async Task SaveQuizAsync(Quiz quiz)
         {
@@ -25,12 +33,7 @@ namespace MovieQuizAdventure.Services
 
             string fullPath = Path.Combine(folderPath, fileName);
 
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
-
-            string json = JsonSerializer.Serialize(quiz, options);
+            string json = JsonSerializer.Serialize(quiz, JsonOptions);
             await File.WriteAllTextAsync(fullPath, json);
         }
 
@@ -42,8 +45,12 @@ namespace MovieQuizAdventure.Services
                 return null;
 
             string json = await File.ReadAllTextAsync(fullPath);
-            Quiz loadedQuiz = JsonSerializer.Deserialize<Quiz>(json);
-            loadedQuiz.FileName = $"{title}.json";
+            var loadedQuiz = JsonSerializer.Deserialize<Quiz>(json, JsonOptions);
+            if (loadedQuiz != null)
+            {
+                loadedQuiz.FileName = $"{title}.json";
+                loadedQuiz.Randomizer = new Random();
+            }
 
             return loadedQuiz;
         }

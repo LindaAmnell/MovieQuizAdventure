@@ -86,6 +86,17 @@ namespace MovieQuizAdventure
             }
         }
 
+        private void BrowseImageClick(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "Image Files|*.png;*.jpg;*.jpeg;*.gif;*.bmp|All Files|*.*";
+
+            if (dlg.ShowDialog() == true)
+            {
+                ViewModel.ImageUrl = dlg.FileName;
+            }
+        }
+
     }
 
 }

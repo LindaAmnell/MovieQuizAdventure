@@ -1,4 +1,6 @@
-﻿namespace MovieQuizAdventure.Models
+﻿using System.Text.Json.Serialization;
+
+namespace MovieQuizAdventure.Models
 {
     public class Quiz
     {
@@ -7,7 +9,10 @@
         public List<Question> questions { get; set; }
         public string FileName { get; set; }
 
+        [JsonIgnore]
         public Random Randomizer { get; set; }
+
+        public int? RandomSeed { get; set; }
 
         public Quiz(string title = "")
         {
@@ -23,9 +28,9 @@
             return questions[index];
         }
 
-        public void AddQuestion(string statement, int correctAnswer, params string[] answers)
+        public void AddQuestion(string statement, int correctAnswer, MovieCategory category, params string[] answers)
         {
-            var newQuestion = new Question(statement, answers, correctAnswer);
+            var newQuestion = new Question(statement, answers, correctAnswer, category);
             questions.Add(newQuestion);
 
         }

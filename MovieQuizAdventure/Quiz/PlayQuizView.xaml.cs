@@ -10,7 +10,9 @@ namespace MovieQuizAdventure
     public partial class PlayQuizView : UserControl
     {
         private MainWindow mainWindow;
+
         public PlayQuizGame ViewModel { get; set; }
+
 
         public PlayQuizView(MainWindow main, PlayQuizGame quizGame)
         {

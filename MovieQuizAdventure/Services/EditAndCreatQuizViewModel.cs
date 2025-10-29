@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace MovieQuizAdventure.Services
 {
-    public class EditAndCreatQuizViewModel
+    public class EditAndCreatQuizViewModel : INotifyPropertyChanged
     {
 
         private Quiz currentQuiz;
@@ -15,21 +15,26 @@ namespace MovieQuizAdventure.Services
         public string Statement { get; set; }
         public string[] Answers { get; set; } = new string[4];
         public int CorrectAnswer { get; set; }
+        public MovieCategory Category { get; set; }
+        public MovieCategory[] MovieCategoriesList => Enum.GetValues(typeof(MovieCategory))
+                                                           .Cast<MovieCategory>()
+                                                           .ToArray();
+        private bool _useImage;
+        public bool UseImage
+        {
+            get => _useImage;
+            set { _useImage = value; OnPropertyChanged(); }
+        }
+
+        private string _imageUrl;
+        public string ImageUrl
+        {
+            get => _imageUrl;
+            set { _imageUrl = value; OnPropertyChanged(); }
+        }
         public ObservableCollection<Question> Questions { get; private set; } = new();
 
-        private int _selectedQuestionIndex = -1;
-        public int SelectedQuestionIndex
-        {
-            get => _selectedQuestionIndex;
-            set
-            {
-                if (_selectedQuestionIndex != value)
-                {
-                    _selectedQuestionIndex = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public int SelectedQuestionIndex { get; set; } = -1;
 
         private string _quizTitle;
         public string QuizTitle
@@ -56,12 +61,20 @@ namespace MovieQuizAdventure.Services
                 Statement = question.Statement;
                 Answers = question.Answers.ToArray();
                 CorrectAnswer = question.CorrectAnswer;
+                ImageUrl = question.ImageUrl;
+                UseImage = !string.IsNullOrWhiteSpace(ImageUrl);
+                Category = question.Category;
+
             }
             else
             {
                 Statement = string.Empty;
                 Answers = new string[4];
                 CorrectAnswer = 0;
+                ImageUrl = string.Empty;
+                UseImage = false;
+                Category = MovieCategory.MovieTrivia;
+
             }
             if (currentQuiz?.questions != null)
             {
@@ -102,16 +115,22 @@ namespace MovieQuizAdventure.Services
                 .Select(a => a?.Trim() ?? "")
                 .ToArray();
 
+            string finalImageUrl = UseImage ? ImageUrl?.Trim() : null;
+
             if (currentQuestion == null)
             {
-                currentQuiz.AddQuestion(cleanedStatement, CorrectAnswer, cleanedAnswers);
-                Questions.Add(currentQuiz.questions.Last());
+                currentQuiz.AddQuestion(cleanedStatement, CorrectAnswer, Category, cleanedAnswers);
+                var justAdded = currentQuiz.questions.Last();
+                justAdded.ImageUrl = finalImageUrl;
+                Questions.Add(justAdded);
             }
             else
             {
                 currentQuestion.Statement = cleanedStatement;
                 currentQuestion.Answers = cleanedAnswers;
                 currentQuestion.CorrectAnswer = CorrectAnswer;
+                currentQuestion.ImageUrl = finalImageUrl;
+                currentQuestion.Category = Category;
             }
             await JsonStorage.SaveQuizAsync(currentQuiz);
 
@@ -166,13 +185,23 @@ namespace MovieQuizAdventure.Services
             Statement = string.Empty;
             Answers = new string[4];
             CorrectAnswer = 0;
+            ImageUrl = string.Empty;
+            UseImage = false;
+
+            Category = MovieCategory.MovieTrivia;
+
+
 
             OnPropertyChanged(nameof(Statement));
             OnPropertyChanged(nameof(CorrectAnswer));
+            OnPropertyChanged(nameof(ImageUrl));
+            OnPropertyChanged(nameof(UseImage));
+            OnPropertyChanged(nameof(Category));
             OnPropertyChanged("Answers[0]");
             OnPropertyChanged("Answers[1]");
             OnPropertyChanged("Answers[2]");
             OnPropertyChanged("Answers[3]");
+
 
         }
 

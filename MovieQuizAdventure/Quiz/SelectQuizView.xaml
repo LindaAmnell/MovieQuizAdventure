@@ -8,8 +8,8 @@
         <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     </UserControl.Resources>
-        <Grid Margin="20" >
-            <Grid.RowDefinitions>
+    <Grid Margin="20" >
+        <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -59,7 +59,7 @@
                                     HorizontalAlignment="Right"
                                     Visibility="{Binding DataContext.IsEditMode,
                                     RelativeSource={RelativeSource AncestorType=UserControl},
-                                    Converter={StaticResource BoolToVisibilityConverter}}">  
+                                    Converter={StaticResource BoolToVisibilityConverter}}">
                             <Button Height="25" Margin="5 10" Width="20"
                                     BorderBrush="#5E5BA8" 
                                     Background="#C3A6FF"
@@ -79,7 +79,5 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
     </Grid>
-        
 </UserControl>

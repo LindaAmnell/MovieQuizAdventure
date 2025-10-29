@@ -13,6 +13,7 @@ namespace MovieQuizAdventure.Models
         public int TotalAnswered { get; set; }
 
         private List<Question> usedQuestions = new();
+        public string? CurrentImageUrl => CurrentQuestion?.ImageUrl;
 
         public string ScoreText
         {
@@ -30,7 +31,8 @@ namespace MovieQuizAdventure.Models
         {
             Quiz = quiz;
             CurrentQuestion = Quiz.GetRandomQuestion();
-            OnPropertyChanged("CurrentQuestion");
+            OnPropertyChanged(nameof(CurrentQuestion));
+            OnPropertyChanged(nameof(CurrentImageUrl));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -57,6 +59,7 @@ namespace MovieQuizAdventure.Models
             {
                 CurrentQuestion = null;
                 OnPropertyChanged(nameof(CurrentQuestion));
+                OnPropertyChanged(nameof(CurrentImageUrl));
                 return;
             }
             Question nextQuestion;
@@ -66,11 +69,19 @@ namespace MovieQuizAdventure.Models
             }
             while (usedQuestions.Contains(nextQuestion));
             CurrentQuestion = nextQuestion;
-
             OnPropertyChanged(nameof(CurrentQuestion));
+            OnPropertyChanged(nameof(CurrentImageUrl));
             OnPropertyChanged(nameof(ScoreText));
+
         }
 
-        //public bool IsDone => index >= Quiz.Count;
+        public List<Question> GetAllQuestionsByCategory(List<Quiz> allQuizzes, params MovieCategory[] categories)
+        {
+            return allQuizzes
+        .SelectMany(qz => qz.questions)
+        .Where(q => categories.Contains(q.Category))
+        .ToList();
+
+        }
     }
 }
