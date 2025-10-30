@@ -12,8 +12,11 @@ namespace MovieQuizAdventure
     {
         private MainWindow mainWindow;
         public bool IsEditMode { get; set; }
+        public bool IsPlayMode => !IsEditMode;
+
         private QuizManager quizManager;
         public SelectQuizView ViewModel { get; set; }
+        public List<MovieCategory> MovieCategories { get; set; }
 
         public SelectQuizView(MainWindow main, bool isEditMode = false)
         {
@@ -23,6 +26,8 @@ namespace MovieQuizAdventure
 
             quizManager = QuizManager.Instance;
             QuizList.ItemsSource = quizManager.quizzes;
+
+            MovieCategories = Enum.GetValues(typeof(MovieCategory)).Cast<MovieCategory>().ToList();
 
             DataContext = this;
         }
@@ -69,5 +74,24 @@ namespace MovieQuizAdventure
             QuizManager.Instance.quizzes.Remove(selectedQuiz);
 
         }
+
+        private void CategoryButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var category = (MovieCategory)((Button)sender).CommandParameter;
+
+            var allQuizzes = QuizManager.Instance.quizzes.ToList();
+            Quiz categoryQuiz = PlayQuizGame.CreateQuizFromCategory(allQuizzes, category);
+
+            if (categoryQuiz == null)
+                return;
+
+            var playGame = new PlayQuizGame(categoryQuiz);
+            mainWindow.Navigate(new PlayQuizView(mainWindow, playGame));
+        }
+
+        //Visibility="{Binding DataContext.IsPlayMode,
+        //                   RelativeSource={RelativeSource AncestorType = UserControl},
+        //                   Converter={StaticResource BoolToVisibilityConverter}}"
+
     }
 }

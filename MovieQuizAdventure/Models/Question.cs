@@ -19,12 +19,9 @@ namespace MovieQuizAdventure.Models
             CorrectAnswer = correctAnswer;
             Category = category;
         }
-
         public bool IsCorrect(int selectedIndex)
         {
             return selectedIndex == CorrectAnswer;
         }
-
-
     }
 }

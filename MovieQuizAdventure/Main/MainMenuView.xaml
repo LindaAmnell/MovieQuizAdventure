@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
 
             <TextBlock Text="Movie Quiz Adventure"
-                       Foreground="#C3A6FF"
+                       Foreground="#E7F6FF"
                        FontFamily="ROG Fonts"
                        FontSize="28"
                        HorizontalAlignment="Center"
@@ -25,40 +25,20 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="PlayButton"
-                    Content="Play Quiz"
-                    Width="200" Height="40"
-                    Margin="5"
+            <Button Style="{StaticResource ButtonStyle}"
                     Grid.Row="0"
-                    Background="#1C1F3B"
-                    Foreground="#C3A6FF"
-                    BorderBrush="#5E5BA8"
-                    FontWeight="Bold"
-                    FontFamily="ROG Fonts"
-                    Click="PlayButtonClick"
-                    />
+                    Content="Play Quiz"
+                    Click="PlayButtonClick"/>   
             <Button x:Name="EditButton"
                     Content="Edit Quiz"
                     Grid.Row="1"
-                    Width="200" Height="40"
                     Margin="5"
-                    Background="#1C1F3B"
-                    Foreground="#C3A6FF"
-                    BorderBrush="#5E5BA8"
-                    FontFamily="ROG Fonts"
-                    FontWeight="Bold"
-                    Click="EditButtonClick"
-                   />
+                    Style="{StaticResource ButtonStyle}" 
+                    Click="EditButtonClick"/>
             <Button Content="Create New Quiz"
-                    Height="40" Width="200"
                     Grid.Row="2"
-                    Background="#1C1F3B"
-                    Foreground="#C3A6FF"
-                    BorderBrush="#5E5BA8"
-                    FontWeight="Bold"
-                    FontFamily="ROG Fonts"
-                    Click="CreatNewQuiz"
-      />
+                   Style="{StaticResource ButtonStyle}"
+                    Click="CreatNewQuiz"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -7,31 +7,26 @@
              mc:Ignorable="d"     >
   <Grid Margin="20">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="The Result From the"  Foreground="#C3A6FF"
+            <TextBlock Text="The Result From the"  Foreground="#E7F6FF"
                            FontFamily="ROG Fonts"
                            HorizontalAlignment="Center"
                            Margin="10 15 10 0"
                            FontSize="20"/>
                 <TextBlock  Text="{Binding Quiz.Title}" 
-                            Foreground="#C3A6FF"
+                            Foreground="#E7F6FF"
                             HorizontalAlignment="Center"
                             FontFamily="ROG Fonts"
                             FontSize="20" Margin="0 0 0 20"
                   />
             <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock  x:Name="TextBlockAnswer"  Foreground="#C3A6FF" FontFamily="Felix Titling"
+                <TextBlock  x:Name="TextBlockAnswer"  Foreground="#E7F6FF" FontFamily="Felix Titling"
                    Text="{Binding ScoreText}" FontSize="18" HorizontalAlignment="Center"
                    Margin="0 0 0 20"/>
             </StackPanel>
             <Button x:Name="BackButton"
                 Content="Back To Meny"
                 Width="140" Height="40"
-                Background="#1C1F3B"
-                Foreground="#C3A6FF"
-                BorderBrush="#5E5BA8"
-                FontWeight="Bold"
-                FontFamily="ROG Fonts"
-               
+                Style="{StaticResource ButtonStyle}"
                 Click="BackToMenuButtonClick" />
         </StackPanel>
     </Grid>

@@ -5,13 +5,17 @@
         Height="600" Width="900"
         WindowStartupLocation="CenterScreen">
 
-
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="#00111F" Offset="0.0"/>
-            <GradientStop Color="#0A2244" Offset="1.0"/>
+            <GradientStop Color="#03111F" Offset="0.0"/>
+            <GradientStop Color="#124A7A" Offset="0.5"/>
+            <GradientStop Color="#03111F" Offset="1.0"/>
         </LinearGradientBrush>
     </Window.Background>
+
+
+
+
     <ContentControl x:Name="MainContent" />
 
 </Window>

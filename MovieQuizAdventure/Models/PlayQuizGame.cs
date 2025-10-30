@@ -74,14 +74,22 @@ namespace MovieQuizAdventure.Models
             OnPropertyChanged(nameof(ScoreText));
 
         }
-
-        public List<Question> GetAllQuestionsByCategory(List<Quiz> allQuizzes, params MovieCategory[] categories)
+        public static Quiz CreateQuizFromCategory(List<Quiz> allQuizzes, MovieCategory category)
         {
-            return allQuizzes
-        .SelectMany(qz => qz.questions)
-        .Where(q => categories.Contains(q.Category))
-        .ToList();
+            var questions = allQuizzes
+                .SelectMany(q => q.questions)
+                .Where(q => q.Category == category)
+                .ToList();
 
+            if (questions.Count == 0)
+                return null;
+
+            return new Quiz($"Category: {category}")
+            {
+                questions = questions,
+                Randomizer = new Random()
+            };
         }
+
     }
 }

@@ -1,186 +1,125 @@
 ﻿<UserControl x:Class="MovieQuizAdventure.QuestionEditorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:MovieQuizAdventure"
-             xmlns:conv="clr-namespace:MovieQuizAdventure.Converters" xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             mc:Ignorable="d">
-    
-    
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-             <Grid Margin="20">
+        <Grid Margin="40">
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.5*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                     <Button x:Name="BackButton"   Content="Back"
-                                    Width="100" Height="40" Margin="10"
-                                    Background="#1C1F3B" Foreground="#C3A6FF"
-                                    BorderBrush="#5E5BA8" FontWeight="Bold"
-                                    FontFamily="ROG Fonts"  HorizontalAlignment="Left"
-                                    VerticalAlignment="Top" Click="BackButtonClick"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-            <TextBlock Text="Create or Edit Quiz"
-                                       FontFamily="ROG Fonts" FontSize="24"
-                                       FontWeight="Bold" Foreground="#C3A6FF"
-                                       HorizontalAlignment="right" Margin="0,30,0,20"/>
-            <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin=" 0 0 100 0">
+            <Button x:Name="BackButton"
+                Content="Back"
+                Width="100"
+                Margin="0 10"
+                Style="{StaticResource ButtonStyle}"
+                HorizontalAlignment="Left"
+                Click="BackButtonClick"/>
 
-                            <TextBlock Text="Quiz Name:"
-                                               Foreground="#C3A6FF"  FontFamily="Felix Titling"
-                                               FontSize="18" Margin="0,10,0,5"/>
-                            <TextBox x:Name="QuizNameTextBox"
-                                            Text="{Binding QuizTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="0 5"
-                                            Background="#C3A6FF" Foreground="#1C1F3B"
-                                            BorderBrush="#5E5BA8" FontFamily="Felix Titling"
-                                            FontWeight="Bold" FontSize="14"/>   
+            <TextBlock Text="CREATE OR EDIT QUIZ"
+                   Grid.Row="1"
+                   FontFamily="ROG Fonts"
+                   FontSize="32"
+                   Foreground="#E7F6FF"
+                   HorizontalAlignment="Center" Margin=" 0 0 0 20"/>
 
-                            <TextBlock Text="Question:"
-                                                Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                                FontSize="18"
-                                                VerticalAlignment="Center"  Margin="0,10,0,5"/>
-                <TextBox x:Name="QuestionTextBox"
-                                          Text="{Binding Statement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                            Background="#C3A6FF"  Foreground="#1C1F3B"
-                                            BorderBrush="#5E5BA8" FontFamily="Felix Titling"
-                                            Padding="0 5"
-                                            TextWrapping="Wrap"
-                                            FontWeight="Bold" FontSize="14"
-                                            Margin="0,0,0,5"/>
-                <TextBlock Text="Answer 1:"
-                                         Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                         FontSize="18" Margin="0,10,0,5"/>
-                <TextBox x:Name="Answer1TextBox"
-                                     Text="{Binding Answers[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      Background="#C3A6FF"
-                                      Padding="0 5"
-                                      Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                      FontFamily="Felix Titling" FontWeight="Bold"
-                                      FontSize="14"/>
-                <TextBlock Text="Answer 2:"
-                                         Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                         FontSize="18" Margin="0,10,0,5"/>
-                <TextBox x:Name="Answer2TextBox"
-                                     Text="{Binding Answers[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                       Padding="0 5" Background="#C3A6FF"
-                                       Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                      FontFamily="Felix Titling" FontWeight="Bold"
-                                       FontSize="14"/>
-                <TextBlock Text="Answer 3:"
-                                         Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                         FontSize="18" Margin="0,10,0,5" />
-                <TextBox x:Name="Answer3TextBox"
-                                        Background="#C3A6FF" Text="{Binding Answers[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="0 5"
-                                        Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                       FontFamily="Felix Titling" FontWeight="Bold" FontSize="14"/>
-                <TextBlock Text="Answer 4:"
-                                       Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                       FontSize="18" Margin="0,10,0,5"/>
-                <TextBox x:Name="Answer4TextBox" Text="{Binding Answers[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        Padding="0 5" Background="#C3A6FF"
-                                        Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                       FontFamily="Felix Titling" FontWeight="Bold" FontSize="14"/>
-                <StackPanel Orientation="vertical" >
-                                    
-                                        <TextBlock Text="Correct Answer"
-                                               Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                               FontSize="18" Margin="0,10,0,5"/>
+            <Grid Grid.Row="2" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-                                        <ComboBox SelectedIndex="{Binding CorrectAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                    Width="70" Background="#C3A6FF"
-                                                    Foreground="#1C1F3B" BorderBrush="#5E5BA8"
-                                                    FontFamily="ROG Fonts" FontWeight="Bold" Margin="0 3"
-                                                    FontSize="14" HorizontalAlignment="Left" Padding="5">
-                                                <ComboBoxItem Content="1"/>
-                                                <ComboBoxItem Content="2"/>
-                                                <ComboBoxItem Content="3"/>
-                                                <ComboBoxItem Content="4"/>
-                                            </ComboBox> 
-                                    
-                                                <TextBlock Text="Category"
-                                                           Foreground="#C3A6FF" FontFamily="Felix Titling"
-                                                           FontSize="18" Margin="0,10,0,5"/>
-                            <ComboBox Width="200"
-                                          ItemsSource="{Binding MovieCategoriesList}"
-                                          SelectedItem="{Binding Category, Mode=TwoWay}"          
-                                          Background="#C3A6FF"
-                                          HorizontalAlignment="Left"
-                                          Foreground="#1C1F3B"
-                                          BorderBrush="#5E5BA8"
-                                          FontFamily="ROG Fonts"
-                                          FontWeight="Bold"
-                                          Margin="0,3"
-                                          Padding="5"
-                                          FontSize="14">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding}" 
-                                       FontFamily="ROG Fonts" 
-                                       FontWeight="Bold" 
-                                       Foreground="#1C1F3B"/>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
+                <StackPanel Grid.Column="0"
+                        Width="380"
+                        Margin="0 0 40 0">
 
+                    <TextBlock Text="QUIZ NAME:" Foreground="#E7F6FF" FontFamily="Felix Titling" FontSize="17" />
+                    <TextBox Text="{Binding QuizTitle}" />
+
+                    <TextBlock  FontSize="17" Text="QUESTION:" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <TextBox Text="{Binding Statement}" TextWrapping="Wrap"/>
+
+                    <TextBlock  FontSize="17" Text="ANSWER 1:" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <TextBox Text="{Binding Answers[0]}" />
+
+                    <TextBlock  FontSize="17" Text="ANSWER 2:" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <TextBox Text="{Binding Answers[1]}" />
+
+                    <TextBlock  FontSize="17" Text="ANSWER 3:" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <TextBox Text="{Binding Answers[2]}" />
+
+                    <TextBlock  FontSize="17" Text="ANSWER 4:" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <TextBox Text="{Binding Answers[3]}" />
+
+                    <TextBlock  FontSize="17" Text="CORRECT ANSWER" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <ComboBox SelectedIndex="{Binding CorrectAnswer}" Width="120"  HorizontalAlignment="Left">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                    </ComboBox>
+
+                    <TextBlock  FontSize="17" Text="CATEGORY" Foreground="#E7F6FF" FontFamily="Felix Titling" Margin="0,10,0,0"/>
+                    <ComboBox ItemsSource="{Binding MovieCategoriesList}"
+                              HorizontalAlignment="Left"
+                              SelectedItem="{Binding Category}"
+                          Width="200"/>
+
+                    <CheckBox Content="Add image to this question"
+                          Foreground="#E7F6FF" FontSize="12"
+                          FontFamily="Felix Titling"
+                          IsChecked="{Binding UseImage}"
+                          Margin="0,10,0,10"/>
+
+                    <StackPanel Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <TextBlock Text="Image URL:" FontSize="12"  Foreground="#E7F6FF" FontFamily="Felix Titling"/>
+                        <DockPanel>
+                            <TextBox Text="{Binding ImageUrl}" Width="230"/>
+                            <Button Content="Browse..." Margin="10,0,0,0" Width="120"
+                                Style="{StaticResource ButtonStyle}"
+                                Click="BrowseImageClick"/>
+                        </DockPanel>
+                    </StackPanel>
                 </StackPanel>
-                            <CheckBox Content="Add image to this question"
-                                       FontFamily="Felix Titling"
-                                        Foreground="#C3A6FF"
-                                      Margin="0,10,0,10"
-                                      IsChecked="{Binding UseImage}"/>
 
-                <StackPanel Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
-                    <TextBlock Text="Image URL:"  FontFamily="Felix Titling"
-                               Foreground="#C3A6FF"/>
-                    <DockPanel>
-                        <TextBox Text="{Binding ImageUrl, UpdateSourceTrigger=PropertyChanged}"
-                                 Width="200" FontFamily="Felix Titling" Background="#C3A6FF" TextWrapping="Wrap" Foreground="#1C1F3B" BorderBrush="#5E5BA8"/>
-                        <Button  Content="Browse..." Margin="10,0,0,0"
-                                Click="BrowseImageClick"  Width="150" Height="40" Background="#1C1F3B"
-                                Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                                FontWeight="Bold" FontFamily="ROG Fonts"/>
-                    </DockPanel>
-                </StackPanel>
-            </StackPanel>
-             <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"
+                <StackPanel Grid.Column="1"
+                        VerticalAlignment="Top"
                         Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
-                <TextBlock Text="Image Preview:"
-                       FontFamily="Felix Titling"
-                       Foreground="#C3A6FF"
-                       FontSize="18"
-                       Margin="0,10,0,5"/>
-                <Image Source="{Binding ImageUrl}"
-                       Stretch="Uniform"
-                       Height="250"
-                       Width="250"
-                       Margin="0,10,0,0"/>
+                    <TextBlock Text="Image Preview:" FontSize="17"
+                           Foreground="#E7F6FF"
+                           FontFamily="Felix Titling"/>
 
-                 </StackPanel>
-            <StackPanel Grid.Row="3"  >
-                <Button x:Name="SaveQuizButton" Visibility="Collapsed"
-                       Content="Save Quiz"
-                       Width="150" Height="40" Background="#1C1F3B"
-                       Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                       FontWeight="Bold" FontFamily="ROG Fonts"
-                       HorizontalAlignment="Center" Click="SaveQuizClick"/>
-               
-                    <Button  x:Name="NewQuizMode" Visibility="Collapsed"
-                         Content="Next Question"
-                         Width="150" Height="40" Background="#1C1F3B"
-                         Foreground="#C3A6FF" BorderBrush="#5E5BA8"
-                         FontWeight="Bold" FontFamily="ROG Fonts" Margin="20"
-                         HorizontalAlignment="Right" Click="NextQuestionClick"/>   
-              
+                    <Border BorderBrush="#6BA8FF" BorderThickness="2" CornerRadius="8" Margin="0,10,0,0">
+                        <Image Source="{Binding ImageUrl}"
+                           Width="260"
+                           Height="260"
+                           Stretch="UniformToFill"/>
+                    </Border>
                 </StackPanel>
             </Grid>
-     </ScrollViewer>
+
+            <StackPanel Grid.Row="3" Margin="0 30" HorizontalAlignment="Center">
+                <Button x:Name="SaveQuizButton"
+                    Content="SAVE QUIZ"
+                    Width="180"
+                    Style="{StaticResource ButtonStyle}"
+                    Visibility="Collapsed"
+                    Click="SaveQuizClick"/>
+
+                <Button x:Name="NewQuizMode"
+                    Content="NEXT QUESTION"
+                    Width="180"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0 15"
+                    Visibility="Collapsed"
+                    Click="NextQuestionClick"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+
 </UserControl>
