@@ -145,7 +145,6 @@ namespace MovieQuizAdventure.Services
             return true;
         }
 
-
         public async Task<bool> DeleteSelectedQuestion()
         {
             if (currentQuiz == null || SelectedQuestionIndex < 0)
@@ -190,8 +189,6 @@ namespace MovieQuizAdventure.Services
 
             Category = MovieCategory.MovieTrivia;
 
-
-
             OnPropertyChanged(nameof(Statement));
             OnPropertyChanged(nameof(CorrectAnswer));
             OnPropertyChanged(nameof(ImageUrl));
@@ -201,8 +198,6 @@ namespace MovieQuizAdventure.Services
             OnPropertyChanged("Answers[1]");
             OnPropertyChanged("Answers[2]");
             OnPropertyChanged("Answers[3]");
-
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

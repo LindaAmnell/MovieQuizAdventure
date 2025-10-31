@@ -126,7 +126,7 @@
                             <StackPanel Orientation="Horizontal" Margin="0,5">
 
                                     <Button Content="{Binding Title}"
-                                            Height="40" Width="200"
+                                            Height="40" Width="250"
                                             Style="{StaticResource ButtonStyle}"
                                             Click="GoToChoosenQuiz"
                                             Tag="{Binding}"/>       
@@ -148,7 +148,7 @@
                                     <Button Height="30" Width="30" Margin="15 10 0 10"
                                              Style="{StaticResource ButtonStyle}"
                                             Background="#42B4FF"
-                                            Click="DeleteQuestionClick"
+                                            Click="DeleteQuizClick"
                                             Tag="{Binding}">
                                         <Image Source="/Images/trashcanicon.png" Width="15"/>
                                     </Button>
@@ -167,6 +167,7 @@
                             <Button Content="{Binding}"
                                     Margin="5"
                                     Padding="10"
+                                     Width="250"
                                     Style="{StaticResource ButtonStyle}"
                                     CommandParameter="{Binding}"
                                     Click="CategoryButtonClicked"/>

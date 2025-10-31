@@ -1,6 +1,11 @@
 ﻿<UserControl x:Class="MovieQuizAdventure.QuestionEditorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MovieQuizAdventure"
+             xmlns:conv="clr-namespace:MovieQuizAdventure.Converters" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Margin="40">
@@ -8,7 +13,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
@@ -86,38 +91,33 @@
                     </StackPanel>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1"
-                        VerticalAlignment="Top"
-                        Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left"  Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
+
                     <TextBlock Text="Image Preview:" FontSize="17"
                            Foreground="#E7F6FF"
                            FontFamily="Felix Titling"/>
 
-                    <Border BorderBrush="#6BA8FF" BorderThickness="2" CornerRadius="8" Margin="0,10,0,0">
-                        <Image Source="{Binding ImageUrl}"
+                    <Image Source="{Binding ImageUrl}"
                            Width="260"
                            Height="260"
-                           Stretch="UniformToFill"/>
-                    </Border>
+                            Stretch="Uniform"/>
                 </StackPanel>
             </Grid>
-
-            <StackPanel Grid.Row="3" Margin="0 30" HorizontalAlignment="Center">
+            <StackPanel Margin="0 30 0 10" Grid.Row="3" HorizontalAlignment="Center">
                 <Button x:Name="SaveQuizButton"
-                    Content="SAVE QUIZ"
-                    Width="180"
-                    Style="{StaticResource ButtonStyle}"
-                    Visibility="Collapsed"
-                    Click="SaveQuizClick"/>
-
+                        Content="SAVE QUIZ"
+                        Width="180"
+                        Style="{StaticResource ButtonStyle}"
+                        Visibility="Collapsed"
+                        Click="SaveQuizClick"/>
                 <Button x:Name="NewQuizMode"
-                    Content="NEXT QUESTION"
-                    Width="180"
-                    Style="{StaticResource ButtonStyle}"
-                    Margin="0 15"
-                    Visibility="Collapsed"
-                    Click="NextQuestionClick"/>
+                        Content="NEXT QUESTION"
+                        Width="180"
+                        Style="{StaticResource ButtonStyle}"
+                        Visibility="Collapsed"
+                        Click="NextQuestionClick"/>
             </StackPanel>
+
 
         </Grid>
     </ScrollViewer>

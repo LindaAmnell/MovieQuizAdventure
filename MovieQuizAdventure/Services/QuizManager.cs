@@ -10,9 +10,8 @@ namespace MovieQuizAdventure.Services
 
         private QuizManager()
         {
-            JsonStorage.EnsureDefaultQuizzesFromProject();
             quizzes = new ObservableCollection<Quiz>();
-            _ = LoadAllSavedQuizzes();
+
         }
 
         public ObservableCollection<Quiz> GetAllQuizzes()

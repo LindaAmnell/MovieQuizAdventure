@@ -1,0 +1,108 @@
+{
+  "Title": "Epic Movie Quotes",
+  "FileName": "EpicMovieQuotes.json",
+  "RandomSeed": null,
+  "questions": [
+    {
+      "Statement": "Finish the quote: \"Life is like a box of chocolates...\"",
+      "Answers": [
+        "You always get what you want",
+        "There's never enough",
+        "You never know what you're gonna get",
+        "Best enjoyed slowly"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who says, \"I am inevitable.\"",
+      "Answers": ["Darth Vader", "Thanos", "Ultron", "The Emperor"],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "What movie is this quote from: \"I'm the king of the world!\"",
+      "Answers": ["The Lion King", "Gladiator", "Titanic", "Avatar"],
+      "CorrectAnswer": 2,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this actor?",
+      "Answers": [
+        "Tom Cruise",
+        "Keanu Reeves",
+        "Christian Bale",
+        "Johnny Depp"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROg5iaPRV0dQsqwpdXHYFwh6QZHk7f1F3G9g&s"
+    },
+    {
+      "Statement": "\"May the Force be with you\" comes from which franchise?",
+      "Answers": [
+        "Star Wars",
+        "Star Trek",
+        "The Matrix",
+        "Guardians of the Galaxy"
+      ],
+      "CorrectAnswer": 0,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "What film features the song \"Skyfall\"?",
+      "Answers": ["No Time To Die", "Skyfall", "Spectre", "Casino Royale"],
+      "CorrectAnswer": 1,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which actor won an Oscar for 'Joker' (2019)?",
+      "Answers": [
+        "Heath Ledger",
+        "Christian Bale",
+        "Joaquin Phoenix",
+        "Jared Leto"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "\"You're gonna need a bigger boat\" is from...",
+      "Answers": ["Titanic", "Cast Away", "Pirates of the Caribbean", "Jaws"],
+      "CorrectAnswer": 3,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who composed the soundtrack for Jurassic Park?",
+      "Answers": [
+        "Hans Zimmer",
+        "John Williams",
+        "Howard Shore",
+        "James Horner"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which animated movie won Best Picture?",
+      "Answers": [
+        "Beauty and the Beast (nominated)",
+        "Up",
+        "Toy Story 3",
+        "None have won"
+      ],
+      "CorrectAnswer": 3,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    }
+  ],
+  "QuestionCount": 10
+}

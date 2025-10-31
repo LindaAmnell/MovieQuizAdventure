@@ -27,6 +27,13 @@ namespace MovieQuizAdventure.Models
                 return $"Score:  {CorrectAnswers} / {TotalAnswered}    ({percent}%)";
             }
         }
+        public string QuestionProgressText
+        {
+            get
+            {
+                return $"Question: {usedQuestions.Count + 1} / {Quiz.QuestionCount}";
+            }
+        }
         public PlayQuizGame(Quiz quiz)
         {
             Quiz = quiz;
@@ -72,6 +79,7 @@ namespace MovieQuizAdventure.Models
             OnPropertyChanged(nameof(CurrentQuestion));
             OnPropertyChanged(nameof(CurrentImageUrl));
             OnPropertyChanged(nameof(ScoreText));
+            OnPropertyChanged(nameof(QuestionProgressText));
 
         }
         public static Quiz CreateQuizFromCategory(List<Quiz> allQuizzes, MovieCategory category)

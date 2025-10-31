@@ -11,16 +11,28 @@
   <ItemGroup>
     <None Remove="Images\pencil.png" />
     <None Remove="Images\trashcanicon.png" />
-    <None Remove="Quizzes\HarryPotterQuiz %281%29.json" />
-    <None Remove="Quizzes\Hunger_Games.json" />
+    <None Remove="Quizzes\CinemaShowdown.json" />
+    <None Remove="Quizzes\EpicMovieQuotes.json" />
+    <None Remove="Quizzes\HarryPotter.json" />
+    <None Remove="Quizzes\LordOfTheRings.json" />
+    <None Remove="Quizzes\OscarsAndMusic.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Quizzes\HarryPotterQuiz (1).json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Quizzes\CinemaShowdown.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quizzes\Hunger_Games.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Quizzes\EpicMovieQuotes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Quizzes\HarryPotter.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Quizzes\LordOfTheRings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Quizzes\OscarsAndMusic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

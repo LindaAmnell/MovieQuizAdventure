@@ -1,0 +1,83 @@
+{
+  "Title": "Lord of the Rings Quiz",
+  "questions": [
+    {
+      "Statement": "Who carries the One Ring for most of the trilogy?",
+      "Answers": ["Aragorn", "Samwise", "Frodo", "Legolas"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this character?",
+      "Answers": ["Gimli", "Boromir", "Thorin", "Legolas"],
+      "CorrectAnswer": 3,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDiUYsAnwkNayjcqB8rpf6XDWq0iwlSbL4QA&s"
+    },
+    {
+      "Statement": "Which song is closely associated with the first film?",
+      "Answers": [
+        "Into the West",
+        "I See Fire",
+        "Concerning Hobbits",
+        "May It Be"
+      ],
+      "CorrectAnswer": 3,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who says, \"You shall not pass!\"",
+      "Answers": ["Saruman", "Gandalf", "Aragorn", "Frodo"],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "What is Aragorn's reforged sword called?",
+      "Answers": ["Andúril", "Sting", "Glamdring", "Orcrist"],
+      "CorrectAnswer": 0,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Where must the One Ring be destroyed?",
+      "Answers": ["Gondor", "Moria", "Mount Doom", "Rivendell"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which wizard betrays the White Council?",
+      "Answers": ["Saruman", "Gandalf", "Radagast", "Alatar"],
+      "CorrectAnswer": 0,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which of these is NOT a hobbit?",
+      "Answers": ["Merry", "Pippin", "Gimli", "Sam"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "In which year did 'The Return of the King' win 11 Oscars?",
+      "Answers": ["2002", "2003", "2005", "2004"],
+      "CorrectAnswer": 3,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this character?",
+      "Answers": ["Gollum", "Saruman", "Smeagol", "Gríma Wormtongue"],
+      "CorrectAnswer": 0,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ88RYwrmUJ7fkLqCJ1ZpIeyFrfaxUv1HKkVw&s"
+    }
+  ],
+  "FileName": "LordOfTheRings.json",
+  "RandomSeed": null,
+  "QuestionCount": 10
+}

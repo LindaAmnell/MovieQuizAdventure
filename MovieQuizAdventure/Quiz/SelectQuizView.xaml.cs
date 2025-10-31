@@ -58,17 +58,11 @@ namespace MovieQuizAdventure
         }
 
 
-        private void DeleteQuestionClick(object sender, RoutedEventArgs e)
+        private void DeleteQuizClick(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var selectedQuiz = button?.Tag as Quiz;
             if (selectedQuiz == null) return;
-
-            var result = MessageBox.Show(
-                "There are no questions left in this quiz.\nThe quiz will now be deleted.",
-                "Quiz deleted",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
 
             JsonStorage.DeleteQuizFile(selectedQuiz.FileName);
             QuizManager.Instance.quizzes.Remove(selectedQuiz);
@@ -88,10 +82,6 @@ namespace MovieQuizAdventure
             var playGame = new PlayQuizGame(categoryQuiz);
             mainWindow.Navigate(new PlayQuizView(mainWindow, playGame));
         }
-
-        //Visibility="{Binding DataContext.IsPlayMode,
-        //                   RelativeSource={RelativeSource AncestorType = UserControl},
-        //                   Converter={StaticResource BoolToVisibilityConverter}}"
 
     }
 }

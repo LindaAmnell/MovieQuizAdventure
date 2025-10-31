@@ -1,0 +1,103 @@
+{
+  "Title": "Cinema Showdown",
+  "FileName": "CinemaShowdown.json",
+  "RandomSeed": null,
+  "questions": [
+    {
+      "Statement": "\"I'll be back\"",
+      "Answers": ["RoboCop", "Terminator", "Die Hard", "Predator"],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "What movie is this quote from: \"Hasta la vista, baby.\"",
+      "Answers": [
+        "Die Hard",
+        "RoboCop",
+        "Terminator 2: Judgment Day",
+        "Predator"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "\"With great power comes great responsibility.\"",
+      "Answers": ["Batman", "Spider-Man", "Iron Man", "Captain America"],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this actor?",
+      "Answers": [
+        "Chris Pratt",
+        "Chris Evans",
+        "Robert Downey Jr.",
+        "Paul Rudd"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_omJ-uWEg-01F4_ICGWqIGBLfDz04yg2cSA&s"
+    },
+    {
+      "Statement": "\"You're breathtaking!\" meme is connected to which actor?",
+      "Answers": [
+        "Ryan Reynolds",
+        "Keanu Reeves",
+        "Chris Evans",
+        "Tom Holland"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which movie won Best Picture in 2024?",
+      "Answers": [
+        "Barbie",
+        "Oppenheimer",
+        "Poor Things",
+        "Killers of the Flower Moon"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "\"Do. Or do not. There is no try.\"",
+      "Answers": ["Lord of the Rings", "Star Trek", "Star Wars", "The Matrix"],
+      "CorrectAnswer": 2,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which film features the soundtrack 'Time' (extremely emotional)?",
+      "Answers": ["Interstellar", "Dune", "Avatar", "Inception"],
+      "CorrectAnswer": 3,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "\"Just keep swimming\" is from...",
+      "Answers": ["Finding Nemo", "Frozen", "Moana", "Shrek"],
+      "CorrectAnswer": 0,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who holds the record for most Oscars (individual)?",
+      "Answers": [
+        "John Williams",
+        "Edith Head",
+        "Walt Disney",
+        "Katharine Hepburn"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    }
+  ],
+  "QuestionCount": 10
+}

@@ -1,0 +1,103 @@
+{
+  "Title": "Harry Potter Quiz",
+  "questions": [
+    {
+      "Statement": "Which Hogwarts house does Harry belong to?",
+      "Answers": ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this character?",
+      "Answers": [
+        "Lucius Malfoy",
+        "Severus Snape",
+        "Sirius Black",
+        "Gellert Grindelwald"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://i.insider.com/6789412d8951662c9f208aeb?width=700"
+    },
+    {
+      "Statement": "What is the name of Harry's owl?",
+      "Answers": ["Fluffy", "Hedwig", "Scabbers", "Errol"],
+      "CorrectAnswer": 1,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who says the single word \"Always.\"",
+      "Answers": [
+        "Ron Weasley",
+        "Severus Snape",
+        "Harry Potter",
+        "Rubeus Hagrid"
+      ],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which of these is NOT a Deathly Hallow?",
+      "Answers": [
+        "Elder Wand",
+        "Resurrection Stone",
+        "Invisibility Cloak",
+        "Sorcerer's Stone"
+      ],
+      "CorrectAnswer": 3,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "From which platform does the Hogwarts Express depart?",
+      "Answers": ["7 3/4", "9 3/4", "6 1/2", "12 3/4"],
+      "CorrectAnswer": 1,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who teaches Potions in the first Harry Potter film?",
+      "Answers": [
+        "Severus Snape",
+        "Minerva McGonagall",
+        "Rubeus Hagrid",
+        "Remus Lupin"
+      ],
+      "CorrectAnswer": 0,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which creatures run Gringotts Bank?",
+      "Answers": ["Dragons", "Trolls", "Goblins", "Giants"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which sport does Harry play?",
+      "Answers": ["Broomchase", "Skysprint", "Quidditch", "Snitchball"],
+      "CorrectAnswer": 2,
+      "Category": "MovieTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who composed the original main theme often called \"Hedwig's Theme\"?",
+      "Answers": [
+        "Hans Zimmer",
+        "James Newton Howard",
+        "Howard Shore",
+        "John Williams"
+      ],
+      "CorrectAnswer": 3,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": "https://cso.org/media/wj5kjblr/23202_williams_corporatenight_1500x1125.jpg?mode=max&quality=80&width=1024&upscale=false"
+    }
+  ],
+  "FileName": "HarryPotter.json",
+  "RandomSeed": null,
+  "QuestionCount": 10
+}

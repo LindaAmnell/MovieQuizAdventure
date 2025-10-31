@@ -57,9 +57,5 @@ namespace MovieQuizAdventure
                 mainWindow.Navigate(new SelectQuizView(mainWindow, isEditMode: true));
             }
         }
-
-
-
-
     }
 }

@@ -1,0 +1,98 @@
+{
+  "Title": "Oscars & Movie Music",
+  "questions": [
+    {
+      "Statement": "Which film won 11 Oscars from 11 nominations (a clean sweep)?",
+      "Answers": [
+        "Titanic",
+        "Ben-Hur",
+        "The Lord of the Rings: The Return of the King",
+        "All About Eve"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who sings the Titanic theme 'My Heart Will Go On'?",
+      "Answers": ["Adele", "Celine Dion", "Whitney Houston", "Shakira"],
+      "CorrectAnswer": 1,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who is this actor?",
+      "Answers": ["Leonardo DiCaprio", "Brad Pitt", "Tom Hardy", "Matt Damon"],
+      "CorrectAnswer": 0,
+      "Category": "GuessTheCharacter",
+      "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Leonardo_DiCaprio_2010.jpg/960px-Leonardo_DiCaprio_2010.jpg"
+    },
+    {
+      "Statement": "Which film won Best Picture at the 2020 Academy Awards ceremony?",
+      "Answers": ["Joker", "1917", "Parasite", "Once Upon a Time in Hollywood"],
+      "CorrectAnswer": 2,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which film features the song 'Shallow'?",
+      "Answers": [
+        "The Greatest Showman",
+        "La La Land",
+        "A Star Is Born",
+        "Moulin Rouge!"
+      ],
+      "CorrectAnswer": 2,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "“I'm gonna make him an offer he can't refuse.” is a quote from which film?",
+      "Answers": ["Goodfellas", "Scarface", "The Godfather", "Casino"],
+      "CorrectAnswer": 2,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who composed the score for Inception (2010)?",
+      "Answers": [
+        "Hans Zimmer",
+        "John Williams",
+        "Howard Shore",
+        "Danny Elfman"
+      ],
+      "CorrectAnswer": 0,
+      "Category": "SoundtrackAndMusic",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Which animated feature was the first ever nominated for Best Picture?",
+      "Answers": ["Frozen", "Toy Story", "Beauty and the Beast", "Up"],
+      "CorrectAnswer": 2,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who says, “Why so serious?”",
+      "Answers": ["Bane", "Joker", "Batman", "Harvey Dent"],
+      "CorrectAnswer": 1,
+      "Category": "QuotesAndLines",
+      "ImageUrl": null
+    },
+    {
+      "Statement": "Who holds the record for the most Academy Award wins (individual)?",
+      "Answers": [
+        "Walt Disney",
+        "John Williams",
+        "Katharine Hepburn",
+        "Edith Head"
+      ],
+      "CorrectAnswer": 0,
+      "Category": "OscarTrivia",
+      "ImageUrl": null
+    }
+  ],
+  "FileName": "OscarsAndMusic.json",
+  "RandomSeed": null,
+  "QuestionCount": 10
+}
