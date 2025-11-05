@@ -1,9 +1,9 @@
+# 🎬 Movie Quiz Adventure
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/095e1131-4504-4100-bebd-047186b2d072" alt="Quiz Screenshot" width="500">
 </p>
 
-# 🎬 Movie Quiz Adventure
 
 ## 📖 About the Project
 This project was developed as part of **Lab 3 – Quiz Game**, where the goal was to build a graphical quiz application using C# (WPF).
