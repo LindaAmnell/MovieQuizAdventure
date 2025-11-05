@@ -1,7 +1,6 @@
 
 <p align="center">
-![Quiz](https://github.com/user-attachments/assets/095e1131-4504-4100-bebd-047186b2d072)
-
+  <img src="https://github.com/user-attachments/assets/095e1131-4504-4100-bebd-047186b2d072" alt="Quiz Screenshot" width="500">
 </p>
 
 # 🎬 Movie Quiz Adventure
