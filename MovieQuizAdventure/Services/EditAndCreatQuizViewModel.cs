@@ -1,8 +1,11 @@
 ﻿using MovieQuizAdventure.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MovieQuizAdventure.Services
 {
@@ -30,7 +33,45 @@ namespace MovieQuizAdventure.Services
         public string ImageUrl
         {
             get => _imageUrl;
-            set { _imageUrl = value; OnPropertyChanged(); }
+            set
+            {
+                _imageUrl = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ImagePreview));
+            }
+        }
+        public ImageSource ImagePreview
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ImageUrl))
+                    return null;
+
+                try
+                {
+                    if (ImageUrl.StartsWith("data:image"))
+                    {
+                        var base64 = ImageUrl.Substring(ImageUrl.IndexOf(",") + 1);
+                        var bytes = Convert.FromBase64String(base64);
+
+                        using (var ms = new MemoryStream(bytes))
+                        {
+                            var img = new BitmapImage();
+                            img.BeginInit();
+                            img.StreamSource = ms;
+                            img.CacheOption = BitmapCacheOption.OnLoad;
+                            img.EndInit();
+                            img.Freeze();
+                            return img;
+                        }
+                    }
+                    return new BitmapImage(new Uri(ImageUrl));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
         }
         public ObservableCollection<Question> Questions { get; private set; } = new();
 

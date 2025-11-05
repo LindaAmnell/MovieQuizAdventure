@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MovieQuizAdventure.Models
 {
@@ -14,6 +17,40 @@ namespace MovieQuizAdventure.Models
 
         private List<Question> usedQuestions = new();
         public string? CurrentImageUrl => CurrentQuestion?.ImageUrl;
+
+        public ImageSource CurrentImageSource
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(CurrentImageUrl))
+                    return null;
+                try
+                {
+                    if (CurrentImageUrl.StartsWith("data:image"))
+                    {
+                        var base64 = CurrentImageUrl.Substring(CurrentImageUrl.IndexOf(",") + 1);
+                        var bytes = Convert.FromBase64String(base64);
+
+                        using (var ms = new MemoryStream(bytes))
+                        {
+                            var img = new BitmapImage();
+                            img.BeginInit();
+                            img.StreamSource = ms;
+                            img.CacheOption = BitmapCacheOption.OnLoad;
+                            img.EndInit();
+                            img.Freeze();
+                            return img;
+                        }
+                    }
+                    return new BitmapImage(new Uri(CurrentImageUrl));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
 
         public string ScoreText
         {
@@ -67,6 +104,7 @@ namespace MovieQuizAdventure.Models
                 CurrentQuestion = null;
                 OnPropertyChanged(nameof(CurrentQuestion));
                 OnPropertyChanged(nameof(CurrentImageUrl));
+                OnPropertyChanged(nameof(CurrentImageSource));
                 return;
             }
             Question nextQuestion;
@@ -78,6 +116,7 @@ namespace MovieQuizAdventure.Models
             CurrentQuestion = nextQuestion;
             OnPropertyChanged(nameof(CurrentQuestion));
             OnPropertyChanged(nameof(CurrentImageUrl));
+            OnPropertyChanged(nameof(CurrentImageSource));
             OnPropertyChanged(nameof(ScoreText));
             OnPropertyChanged(nameof(QuestionProgressText));
 

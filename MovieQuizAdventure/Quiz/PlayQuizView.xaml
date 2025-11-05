@@ -43,7 +43,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Source="{Binding CurrentImageUrl}"
+                <Image Source="{Binding CurrentImageSource}"
                        Height="250"
                        Width="250"
                        Stretch="Uniform"

@@ -83,10 +83,8 @@
                     <StackPanel Visibility="{Binding UseImage, Converter={StaticResource BoolToVisibilityConverter}}">
                         <TextBlock Text="Image URL:" FontSize="12"  Foreground="#E7F6FF" FontFamily="Felix Titling"/>
                         <DockPanel>
-                            <TextBox Text="{Binding ImageUrl}" Width="230"/>
-                            <Button Content="Browse..." Margin="10,0,0,0" Width="120"
-                                Style="{StaticResource ButtonStyle}"
-                                Click="BrowseImageClick"/>
+                            <TextBox Text="{Binding ImageUrl}" Width="230" HorizontalAlignment="Left" />
+                        
                         </DockPanel>
                     </StackPanel>
                 </StackPanel>
@@ -97,10 +95,10 @@
                            Foreground="#E7F6FF"
                            FontFamily="Felix Titling"/>
 
-                    <Image Source="{Binding ImageUrl}"
+                    <Image Source="{Binding ImagePreview}"
                            Width="260"
                            Height="260"
-                            Stretch="Uniform"/>
+                           Stretch="Uniform"/>     
                 </StackPanel>
             </Grid>
             <StackPanel Margin="0 30 0 10" Grid.Row="3" HorizontalAlignment="Center">

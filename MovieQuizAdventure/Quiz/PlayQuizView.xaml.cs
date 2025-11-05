@@ -48,7 +48,7 @@ namespace MovieQuizAdventure
                 correctBtn.Background = new SolidColorBrush(Colors.Green);
             }
 
-            await Task.Delay(1200);
+            await Task.Delay(800);
 
             foreach (var btn in AnswersPanel.Children.OfType<Button>())
             {

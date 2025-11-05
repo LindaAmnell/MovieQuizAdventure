@@ -41,8 +41,9 @@ namespace MovieQuizAdventure.Services
             {
                 if (quiz?.questions == null || quiz.questions.Count == 0)
                     return;
-                string safeTitle = quiz.Title.Replace(" ", "_");
-                string fileName = quiz.FileName ?? $"{safeTitle}.json";
+                Directory.CreateDirectory(folderPath);
+                string safeTitle = string.Join("_", quiz.Title.Split(Path.GetInvalidFileNameChars()));
+                string fileName = $"{safeTitle}.json";
                 quiz.FileName = fileName;
 
                 string fullPath = Path.Combine(folderPath, fileName);
@@ -52,10 +53,15 @@ namespace MovieQuizAdventure.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to save quiz \"{quiz?.Title}\":\n{ex.Message}",
-                               "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    $"Failed to save quiz \"{quiz?.Title}\":\n{ex.Message}",
+                    "Save error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
         }
+
 
         public static async Task<Quiz?> LoadQuizAsync(string title)
         {
