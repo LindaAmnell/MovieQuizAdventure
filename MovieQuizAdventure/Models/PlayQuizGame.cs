@@ -8,7 +8,6 @@ namespace MovieQuizAdventure.Models
 {
     public class PlayQuizGame : INotifyPropertyChanged
     {
-        private int index = 0;
         public Quiz Quiz { get; set; }
         public Question CurrentQuestion { get; set; }
         public int SelectedAnswerIndex { get; set; }
