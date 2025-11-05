@@ -1,7 +1,7 @@
 
 <p align="center">
-  <img src="![Quiz](https://github.com/user-attachments/assets/fdeb9c68-f593-4f38-8baf-fa49afbab1da)
-" alt="Movie Quiz Adventure start menu" width="500"/>  
+![Quiz](https://github.com/user-attachments/assets/095e1131-4504-4100-bebd-047186b2d072)
+
 </p>
 
 # 🎬 Movie Quiz Adventure
